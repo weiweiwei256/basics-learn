@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>css world demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <style>
+      #my_div {
+        background-color: aqua;
+        width: 50%;
+      }
+      #my_span {
+        background-color: indigo;
+        display: block;
+        /* display: flex; */
+        width: 50%;
+      }
+      #my_button:active {
+        background-color: red;
+      }
+    </style>
+    <script>
+      var btn = document.getElementById("my_button");
+      btn.addEventListener("mousedown", function(event) {
+        event.preventDefault();
+      });
+    </script>
+  </head>
+  <body>
+    <div id="my_div">div test</div>
+    <span id="my_span">span test</span>
+    <button id="my_button">button</button>
+  </body>
+</html>
