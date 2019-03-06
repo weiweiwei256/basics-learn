@@ -5,13 +5,14 @@
         @tap.capture='captureTap'>
     <view>demo</view>
     <view>
-      <child :name='myData'></child>
+      <child :name.sync='myData'></child>
     </view>
     <view>
       <child1 :name='myData'></child1>
     </view>
     <view>
-      <button @tap='handleTap'>parent btn</button>
+      <text>{{myData}}</text>
+      <button @tap='handleTap'>change parent data</button>
     </view>
   </view>
 </template>
@@ -52,7 +53,8 @@ export default class Demo extends wepy.page {
       // console.log(e);
     },
     handleTap: function() {
-      console.log(this);
+      this.myData += 'p';
+      console.log(this.myData);
     }
   }; // 声明页面wxml中标签的事件处理函数。注意，此处只用于声明页面wxml中标签的bind、catch事件，自定义方法需以自定义方法的方式声明
 

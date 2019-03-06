@@ -3,18 +3,24 @@
   height: 300rpx;
   margin: 30rpx;
   width: 100%;
-  background-color: blue;
+  background-color: rgba(56, 56, 190, 0.493);
 }
 </style>
 <template>
   <view id='child'
         class="child-container">
+    <view style='border:1px solid black'>
+      <subchild></subchild>
+    </view>
+
     <text>{{name}}</text>
-    <subchild></subchild>
+    <view>
+      <text>{{reverseName}}</text>
+    </view>
     <view> <button @tap="handleTap"
               size="mini"> click</button>
       <button @tap="handleTap2"
-              size="mini"> click2</button>
+              size="mini"> invoke</button>
     </view>
   </view>
 </template>
@@ -24,11 +30,13 @@ import wepy from 'wepy';
 import SubChild from './SubChild';
 export default class Child extends wepy.component {
   props = {
-    name: { type: String, default: 'weiyajun' }
+    name: { type: String, default: 'weiyajun', twoWay: true }
   };
   customData = {}; // 自定义数据
 
-  customFunction() {} //自定义方法
+  customFunction() {
+    console.log('custom function');
+  } //自定义方法
 
   onLoad() {
     console.log(this.name);
@@ -46,18 +54,30 @@ export default class Child extends wepy.component {
 
   mixins = []; // 声明页面所引用的Mixin实例
 
-  computed = {}; // 声明计算属性（详见后文介绍）
+  computed = {
+    reverseName: function() {
+      return this.name
+        .split('')
+        .reverse()
+        .join('');
+    }
+  }; // 声明计算属性（详见后文介绍）
 
-  watch = {}; // 声明数据watcher（详见后文介绍）
+  watch = {
+    name: function(newValue, oldValue) {
+      console.log(`num value: ${oldValue} -> ${newValue}`);
+    }
+  }; // 声明数据watcher（详见后文介绍）
 
   methods = {
     handleTap: function() {
       console.log(this);
-      this.name += 'change';
+      this.name += 'c';
       console.log(this.name);
     },
     handleTap2: () => {
       console.log('handle tap2');
+      this.customFunction();
     }
   }; // 声明页面wxml中标签的事件处理函数。注意，此处只用于声明页面wxml中标签的bind、catch事件，自定义方法需以自定义方法的方式声明
 
