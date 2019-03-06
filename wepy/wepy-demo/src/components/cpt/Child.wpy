@@ -1,6 +1,7 @@
 <style lang="less">
 .child-container {
-  height: 200rpx;
+  height: 300rpx;
+  margin: 30rpx;
   width: 100%;
   background-color: blue;
 }
@@ -9,15 +10,18 @@
   <view id='child'
         class="child-container">
     <text>{{name}}</text>
+    <subchild></subchild>
     <view> <button @tap="handleTap"
               size="mini"> click</button>
+      <button @tap="handleTap2"
+              size="mini"> click2</button>
     </view>
   </view>
 </template>
 
 <script>
 import wepy from 'wepy';
-
+import SubChild from './SubChild';
 export default class Child extends wepy.component {
   props = {
     name: { type: String, default: 'weiyajun' }
@@ -36,7 +40,9 @@ export default class Child extends wepy.component {
 
   data = {}; // 页面所需数据均需在这里声明，可用于模板数据绑定
 
-  components = {}; // 声明页面中所引用的组件，或声明组件中所引用的子组件
+  components = {
+    subchild: SubChild
+  }; // 声明页面中所引用的组件，或声明组件中所引用的子组件
 
   mixins = []; // 声明页面所引用的Mixin实例
 
@@ -46,9 +52,12 @@ export default class Child extends wepy.component {
 
   methods = {
     handleTap: function() {
-      console.log('handle tap');
+      console.log(this);
       this.name += 'change';
       console.log(this.name);
+    },
+    handleTap2: () => {
+      console.log('handle tap2');
     }
   }; // 声明页面wxml中标签的事件处理函数。注意，此处只用于声明页面wxml中标签的bind、catch事件，自定义方法需以自定义方法的方式声明
 

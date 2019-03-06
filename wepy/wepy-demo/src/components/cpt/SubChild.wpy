@@ -1,0 +1,26 @@
+<style lang="less">
+</style>
+<template>
+  <view id='sub-child'>
+    <text>{{subChildData}}</text>
+    <view>
+      <button @tap="handleTap"
+              size="mini">click</button>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy';
+
+export default class SubChild extends wepy.component {
+  data = {
+    subChildData: 'sub child data'
+  };
+  methods = {
+    handleTap: function() {
+      console.log(this);
+    }
+  }; // 声明页面wxml中标签的事件处理函数。注意，此处只用于声明页面wxml中标签的bind、catch事件，自定义方法需以自定义方法的方式声明
+}
+</script>
