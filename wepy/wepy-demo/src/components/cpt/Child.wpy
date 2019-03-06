@@ -78,6 +78,10 @@ export default class Child extends wepy.component {
     handleTap2: () => {
       console.log('handle tap2');
       this.customFunction();
+      setTimeout(() => {
+        this.name = 'async change';
+        this.$apply();
+      }, 0);
     }
   }; // 声明页面wxml中标签的事件处理函数。注意，此处只用于声明页面wxml中标签的bind、catch事件，自定义方法需以自定义方法的方式声明
 
