@@ -4,8 +4,8 @@
   <view id='sub-child'>
     <text>{{subChildData}}</text>
     <view>
-      <button @tap="handleTap"
-              size="mini">click</button>
+      <button @tap="subChildEmit"
+              size="mini">sub child emit</button>
     </view>
   </view>
 </template>
@@ -17,10 +17,24 @@ export default class SubChild extends wepy.component {
   data = {
     subChildData: 'sub child data'
   };
+  subCustomFunction(str) {
+    console.log(this);
+    console.log(str);
+  }
   methods = {
-    handleTap: function() {
-      console.log(this);
+    subChildEmit: function() {
+      this.$emit('sub-child-emit', 2, 2, 2);
     }
-  }; // 声明页面wxml中标签的事件处理函数。注意，此处只用于声明页面wxml中标签的bind、catch事件，自定义方法需以自定义方法的方式声明
+  };
+  events = {
+    'page-broadcast': function() {
+      let args = [...arguments];
+      console.log(args);
+      let $event = args[args.length - 1];
+      console.log(
+        `${this.$name} receive ${$event.name} from ${$event.source.$name}`
+      );
+    }
+  };
 }
 </script>

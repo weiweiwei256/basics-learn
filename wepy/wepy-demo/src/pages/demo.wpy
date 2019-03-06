@@ -13,6 +13,8 @@
     <view>
       <text>{{myData}}</text>
       <button @tap='handleTap'>change parent data</button>
+      <button @tap='broadcast'>broadcast</button>
+      <button @tap='invoke'>invoke</button>
     </view>
   </view>
 </template>
@@ -55,9 +57,22 @@ export default class Demo extends wepy.page {
     handleTap: function() {
       this.myData += 'p';
       console.log(this.myData);
+    },
+    broadcast: function() {
+      this.$broadcast('page-broadcast', 1, 1, 1);
+    },
+    invoke: function() {
+      this.$invoke('child', 'customFunction', 'demo invoke');
+      this.$invoke('child/subchild', 'subCustomFunction', 'demo invoke');
     }
   }; // 声明页面wxml中标签的事件处理函数。注意，此处只用于声明页面wxml中标签的bind、catch事件，自定义方法需以自定义方法的方式声明
 
-  events = {}; // 声明组件之间的事件处理函数
+  events = {
+    'sub-child-emit': (p1, p2, p3, $event) => {
+      console.log(
+        `${this.$name} receive ${$event.name} from ${$event.source.$name}`
+      );
+    }
+  }; // 声明组件之间的事件处理函数
 }
 </script>

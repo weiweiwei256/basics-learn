@@ -33,27 +33,28 @@ export default class Child extends wepy.component {
     name: { type: String, default: 'weiyajun', twoWay: true }
   };
   customData = {}; // 自定义数据
-
-  customFunction() {
-    console.log('custom function');
-  } //自定义方法
-
+  //自定义方法
+  customFunction(str) {
+    console.log(this);
+    console.log(str);
+  }
+  // 只在Page中存在的页面生命周期函数
   onLoad() {
     console.log(this.name);
   } // 在Page和Component共用的生命周期函数
 
   onShow() {
     console.log(this.name);
-  } // 只在Page中存在的页面生命周期函数
-
-  data = {}; // 页面所需数据均需在这里声明，可用于模板数据绑定
-
+  }
+  // 页面所需数据均需在这里声明，可用于模板数据绑定
+  data = {};
+  // 声明页面中所引用的组件，或声明组件中所引用的子组件
   components = {
     subchild: SubChild
-  }; // 声明页面中所引用的组件，或声明组件中所引用的子组件
-
-  mixins = []; // 声明页面所引用的Mixin实例
-
+  };
+  // 声明页面所引用的Mixin实例
+  mixins = [];
+  // 声明计算属性（详见后文介绍）
   computed = {
     reverseName: function() {
       return this.name
@@ -61,30 +62,41 @@ export default class Child extends wepy.component {
         .reverse()
         .join('');
     }
-  }; // 声明计算属性（详见后文介绍）
-
+  };
+  // 声明数据watcher（详见后文介绍）
   watch = {
     name: function(newValue, oldValue) {
       console.log(`num value: ${oldValue} -> ${newValue}`);
     }
-  }; // 声明数据watcher（详见后文介绍）
-
+  };
+  // 声明页面wxml中标签的事件处理函数。注意，此处只用于声明页面wxml中标签的bind、catch事件，自定义方法需以自定义方法的方式声明
   methods = {
     handleTap: function() {
       console.log(this);
       this.name += 'c';
       console.log(this.name);
     },
-    handleTap2: () => {
+    handleTap2: a => {
       console.log('handle tap2');
-      this.customFunction();
+      this.customFunction('child invoke custom function');
       setTimeout(() => {
         this.name = 'async change';
         this.$apply();
       }, 0);
     }
-  }; // 声明页面wxml中标签的事件处理函数。注意，此处只用于声明页面wxml中标签的bind、catch事件，自定义方法需以自定义方法的方式声明
-
-  events = {}; // 声明组件之间的事件处理函数
+  };
+  // 声明组件之间的事件处理函数
+  events = {
+    'page-broadcast': (p1, p2, p3, $event) => {
+      console.log(
+        `${this.$name} receive ${$event.name} from ${$event.source.$name}`
+      );
+    },
+    'sub-child-emit': (p1, p2, p3, $event) => {
+      console.log(
+        `${this.$name} receive ${$event.name} from ${$event.source.$name}`
+      );
+    }
+  };
 }
 </script>
