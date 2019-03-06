@@ -24,6 +24,7 @@ export default class SubChild extends wepy.component {
   methods = {
     subChildEmit: function() {
       this.$emit('sub-child-emit', 2, 2, 2);
+      this.$emit('custom-emit', 100)
     }
   };
   events = {

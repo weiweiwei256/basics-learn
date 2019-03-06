@@ -10,7 +10,7 @@
   <view id='child'
         class="child-container">
     <view style='border:1px solid black'>
-      <subchild></subchild>
+      <subchild @custom-emit.user='handleCustomEmit'></subchild>
     </view>
 
     <text>{{name}}</text>
@@ -83,6 +83,9 @@ export default class Child extends wepy.component {
         this.name = 'async change';
         this.$apply();
       }, 0);
+    },
+    handleCustomEmit: function(a) {
+      console.log(`handle custom emit args:${a}`);
     }
   };
   // 声明组件之间的事件处理函数
@@ -94,7 +97,16 @@ export default class Child extends wepy.component {
     },
     'sub-child-emit': (p1, p2, p3, $event) => {
       console.log(
-        `${this.$name} receive ${$event.name} from ${$event.source.$name}`
+        `sub-child-emit ${this.$name} receive ${$event.name} from ${
+          $event.source.$name
+        }`
+      );
+    },
+    'custom-emit': (arg1, $event) => {
+      console.log(
+        `custom-emit ${this.$name} receive ${$event.name} from ${
+          $event.source.$name
+        }`
       );
     }
   };
