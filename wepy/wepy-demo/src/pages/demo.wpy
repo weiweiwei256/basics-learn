@@ -1,13 +1,16 @@
 <style lang="less">
+.container {
+  width: 100%;
+}
 </style>
 <template>
   <view class="container"
         @tap.capture='captureTap'>
     <view>demo</view>
-    <view>
+    <view class="container">
       <child :name.sync='myData'></child>
     </view>
-    <view>
+    <view class="container">
       <child1 :name='myData'></child1>
     </view>
     <view>
