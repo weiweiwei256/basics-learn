@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>pseudo-class-css3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      input:enabled {
+        border: 1px solid black;
+        background-color: transparent;
+      }
+      input:disabled {
+        border: none;
+        background-color: gray;
+      }
+      input:checked {
+        outline: 2px solid lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="btn.disabled = false;">按钮可用</button>
+    <button onclick="btn.disabled = true;">按钮不可用</button>
+    <input type="button" id="btn" value="按钮" />
+    <br />
+    <label>Male<input type="radio" name="sex"/></label>
+    <label>Female<input type="radio" name="sex"/></label>
+  </body>
+</html>
