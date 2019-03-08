@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>box</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      #my_div {
+        width: 200px;
+        height: 100px;
+        background-color: blue;
+        padding: 20px;
+        border: 5px solid green;
+        margin: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="my_div"></div>
+  </body>
+  <script>
+    window.onload = function() {
+      let myDiv = document.getElementById("my_div")
+      console.dir(myDiv)
+      var a = document.defaultView.getComputedStyle(myDiv)
+      console.log("css width", a.width)
+      console.log("获取盒子客户端的宽度", myDiv.clientWidth)
+      console.log("获取盒子自身实际宽度", myDiv.offsetWidth)
+    }
+  </script>
+</html>
