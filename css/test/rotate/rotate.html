@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>rotate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        #root {
+            width: 500px;
+            box-sizing: border-box;
+            padding-bottom: 300px;
+            margin-bottom: 200px;
+            background: url('./bg.png') no-repeat;
+            /* background-size: 100% auto; */
+            background-size: cover;
+        }
+        /* #root div {
+            width: 300px;
+            height: 300px;
+            margin: 5px;
+            background-color: blue;
+        } */
+        
+        img:focus {
+            transform: rotate(180deg);
+            transition: transform 10s;
+        }
+        
+        img:active {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div>
+            <img src='./draw.png'></img>
+        </div>
+    </div>
+</body>
+
+</html>
