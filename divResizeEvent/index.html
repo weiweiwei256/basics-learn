@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resize</title>
+    <script src="./EleResize.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #resizeDiv {
+            width: 60%;
+            height: 60%;
+            border: 1px solid red;
+            margin: 20px;
+        }
+
+        button {
+            margin: 20px 20px 0;
+        }
+    </style>
+</head>
+<body>
+<button onclick="addListener()">addListener</button>
+<button onclick="removeListener()">removeListener</button>
+<button onclick="resize()">resize</button>
+<div id="resizeDiv"></div>
+<script>
+    var resizeDiv = document.getElementById('resizeDiv');
+    function resize() {
+        resizeDiv.style.width = "200px";
+    }
+    var listener = function () {
+        console.log("resize");
+    };
+    function addListener() {
+        EleResize.on(resizeDiv, listener);
+    }
+    function removeListener() {
+        EleResize.off(resizeDiv, listener)
+    }
+</script>
+</body>
+</html>
+           

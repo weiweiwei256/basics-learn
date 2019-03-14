@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+  </head>
+  <style>
+    #container {
+      height: 600px;
+    }
+    #left {
+      float: left;
+      width: 100px;
+      height: 100%;
+      background-color: green;
+    }
+    #content {
+      background-color: purple;
+      height: 600px;
+      width: calc(100% - 200px);
+      float: left;
+    }
+    #right {
+      float: right;
+      height: 100%;
+      background-color: blue;
+      width: 100px;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div id="left">left</div>
+      <div id="content">content</div>
+      <div id="right">right</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "setting": {},
+  "nodeList": [
+    {
+      "nodeId": 1,
+      "data": {
+        "label": "hello",
+        "nodeType": "node"
+      },
+      "x": 0,
+      "y": 0,
+      "width": 100,
+      "height": 200,
+      "style": null,
+      "relative": false
+    },
+    {
+      "nodeId": 2,
+      "data": {
+        "label": "world",
+        "nodeType": "node"
+      },
+      "x": 500,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "style": null,
+      "relative": false
+    }
+  ],
+  "lineList": [
+    {
+      "lineId": 1,
+      "data": {
+        "label": "to",
+        "nodeType": "line"
+      },
+      "sourceNode": 1,
+      "targetNode": 2
+    }
+  ]
+}

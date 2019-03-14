@@ -1,0 +1,55 @@
+{
+  "name": "scene-demo",
+  "description": "This is a test scene file",
+  "bodies": [
+    {
+      "type": "rectangle",
+      "x": 100,
+      "y": 200,
+      "width": 80,
+      "height": 80,
+      "options": {
+        "label": "rectangle1"
+      }
+    },
+    {
+      "type": "rectangle",
+      "x": 150,
+      "y": 50,
+      "width": 80,
+      "height": 80,
+      "options": {
+        "label": "rectangle2"
+      }
+    },
+    {
+      "type": "rectangle",
+      "x": 250,
+      "y": 50,
+      "width": 80,
+      "height": 80,
+      "options": {
+        "label": "rectangle3",
+        "friction": 0,
+        "frictionStatic": 0,
+        "frictionAir": 0
+      }
+    },
+    {
+      "type": "rectangle",
+      "x": 400,
+      "y": 610,
+      "width": 810,
+      "height": 60,
+      "options": {
+        "label": "ground",
+        "isStatic": true
+      }
+    }
+  ],
+  "gravity": {
+    "scale": 0.01,
+    "x": 0,
+    "y": 1
+  }
+}

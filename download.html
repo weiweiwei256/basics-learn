@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Page Title</title>
+</head>
+<script>  
+  function saveFile() {//保存  
+    let T = 'asdf'
+    let content = 'sdddd'
+    var filename = document.all(T).value;
+    var win = window.open('', '', 'top=10000,left=10000');
+    win.document.write(document.all(content).innerText);
+    win.document.execCommand('SaveAs', '', filename)
+    win.close();
+  }  
+</script>
+
+
+<body>
+  <form name="saveas" action="" method="post">
+    文件名称:<input type="text" id="title_1">
+    <br> 文件内容：
+    <textarea id="content_1">  
+    TEXT  
+    </textarea>
+    <br>
+    <input type="button" value="save as txt file" onClick=saveFile()>
+  </form>
+</body>
+
+</html>
