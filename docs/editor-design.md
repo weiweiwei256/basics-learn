@@ -30,11 +30,10 @@
 
      1. 当用户新增一个组件时，一个创建的命令产生，并正向执行。
      2. 将命令放入undoStack
-     3. 由于undoStack.length>0 所以undo菜单可点击
-     4. 由于undoStack不问空，说明用户产生了修改，所以更新文件的编辑状态为：产生了修改（dirty）
-     5. 如果用户触发的undo，则取出undoStack的最上层的命令，执行它的反向执行逻辑（创建的命令的反向执行逻辑是删除创建的组件），组件被删除。
-     6.  将命令放置的redoStack
-     7. 由于undoStack，redoStack的变化更新undo菜单为不可点击，redo菜单为可点击，文件状态为未编辑（no dirty）
+     3. 更新相关状态 由于undoStack.length>0 所以undo菜单可点击；由于undoStack不问空，说明用户产生了修改，所以更新文件的编辑状态为：产生了修改（dirty）
+     4. 如果用户触发的undo，则取出undoStack的最上层的命令，执行它的反向执行逻辑（创建的命令的反向执行逻辑是删除创建的组件），组件被删除。
+     5.  将命令放置的redoStack
+     6. 更新状态：由于undoStack，redoStack的变化更新undo菜单为不可点击，redo菜单为可点击，文件状态为未编辑（no dirty）
     <br>ps：
      1. 如果用户连续操作，只是队列深浅的变化，不影响效果
      2. 这只是一个简单的设计，未考虑用户连续保存，redo后又正常编辑等复杂情况。
