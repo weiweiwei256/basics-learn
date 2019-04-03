@@ -9,7 +9,6 @@ export default {
     return {}
   },
   mounted: function() {
-    console.log(xlsx)
   }
 }
 </script>
