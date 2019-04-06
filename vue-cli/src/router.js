@@ -8,10 +8,19 @@ import UploadDownload from '@/upload-download/UploadDownload.vue'
 import Echarts from '@/Echarts/Echarts.vue'
 import AwesomeSwiper from '@/swiper/vue-awesome-swiper/AwesomeSwiper.vue'
 import BetterScrollDemo from '@/swiper/better-scroll/BetterScrollDemo.vue'
+import DomToImg from '@/domToImg/DomToImg.vue'
+import CropperDemo from '@/cropper/CropperDemo.vue'
 Vue.use(Router)
 
 export default new Router({
-    routes: [{
+    routes: [
+        {
+            path: '/cropperdemo',
+            component: CropperDemo
+        }, {
+            path: '/DomToImg',
+            component: DomToImg
+        }, {
             path: '/BetterScrollDemo',
             component: BetterScrollDemo
         }, {
