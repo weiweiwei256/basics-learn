@@ -1,13 +1,13 @@
 <template>
-  <div id='cropper-demo'>
-    <div id='image-container'>
-      <img id='my-image'
-           src='./demo.png' />
+  <div id="cropper-demo">
+    <div id="image-container">
+      <img id="my-image" src="./testOrigin.jpg">
     </div>
-    <button @click='getSomeData'>get data</button>
-    <button @click='handleCrop'>crop</button>
-    <div id='cropper-preview'></div>
-    <div id='result'></div>
+    <button @click="getSomeData">get data</button>
+    <button @click="handleCrop">crop</button>
+    <div id="result">
+      <img id="result-img">
+    </div>
   </div>
 </template>
 <script>
@@ -34,14 +34,12 @@ export default {
       console.log('cropper data', cropperData)
     },
     handleCrop: function() {
-      let cropImage = this.cropper.getCroppedCanvas('width') //剪切框相对图片的canvas
-      console.dir(cropImage)
-      let base64url = cropImage.toDataURL('image/png')
-      console.log(base64url) //生成base64图片的格式
-      // cropImage.toBlob(function(e) {   ???
-      //   console.log(e) //生成Blob的图片格式
-      // })
-      $('#result').html(cropImage) //在body显示出canvas元素
+      let cropImage = this.cropper.getCroppedCanvas() //剪切框相对图片的canvas
+      let base64url = cropImage.toDataURL('image/jpeg', 0.7)
+      console.log(base64url)
+      console.log(base64url.length)
+      //生成base64图片的格式
+      $('#result-img').attr('src', base64url) //在body显示出canvas元素
     }
   },
   mounted: function() {
@@ -74,14 +72,14 @@ export default {
       checkCrossOrigin: true,
       // 检查当前图像是否为跨域图像。
       // 类型：Boolean 默认：true；
-      modal: true,
+      modal: false,
       // 显示图片上方的黑色模态并在裁剪框下面。
       // 类型：Boolean 默认：true；
       guides: false,
       // 显示在裁剪框上方的虚线。
       // 类型：Boolean 默认：true；
-      center: true,
-      // 裁剪框在图片正中心。 ???
+      center: false,
+      // 裁剪框在图片正中心。 中间十字 是否显示
       // 类型：Boolean 默认：true；
       highlight: false,
       // 在裁剪框上方显示白色的区域(突出裁剪框)。  ???
@@ -139,20 +137,20 @@ export default {
       minCanvasHeight: 200,
       // minCanvasHeight—canvas的最小高度。
       // 类型：Number 默认：0；
-      minCropBoxWidth: 300,
+      minCropBoxWidth: 100,
       // —裁剪层的最小宽度。
       // 类型：Number 默认：0；
-      minCropBoxHeight: 300,
+      minCropBoxHeight: 100,
       // minCropBoxHeight—裁剪层的最小高度。
       // 类型：Number 默认：0；
       ready: e => {
         // console.log('ready')
         // methods invoke
-        // cropper.clear()
         // image.cropper.clear()
-        this.cropper.zoomTo(1.1) // >1 是缩小
+        // this.cropper.zoomTo(1.1) // >1 是缩小
         // this.cropper.setData({ y: 10, x: 10 }) // 改变剪切框相对与图片的数据
         // cropper.rotate(90)
+        console.log(this.cropper.getImageData())
       },
 
       // 剪切框与图片发生移动时都会触发 监听事件
@@ -173,10 +171,25 @@ export default {
         // console.log('crop')
       },
       // 剪裁框发生变化执行的函数。  ??? 与crop move的差异
-      zoom(e) {
-        // console.log('zoom')
+      zoom: e => {
+        // let {
+        //   detail: { oldRatio, ratio }
+        // } = e
+        // if (oldRatio < ratio) {
+        //   // 放大不做限制
+        //   return
+        // }
+        // console.log(this.cropper.getCanvasData());
+        // let { width, height, naturalWidth, naturalHeight } = this.cropper.getCanvasData()
+        // if (width <= naturalWidth / 2 || height <= naturalHeight / 2) {
+        //   if (e.preventDefault) {
+        //     e.preventDefault()
+        //   }
+        //   e.returnValue = false
+        //   window.event.cancelBubble = true
+        //   return false
+        // }
       }
-      // —剪裁框缩放的时候执行的函数。
     })
   }
 }
@@ -194,5 +207,9 @@ export default {
   overflow: hidden;
 }
 #my-image {
+}
+#result-img {
+  width: 300px;
+  height: 300px;
 }
 </style>

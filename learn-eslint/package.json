@@ -1,0 +1,13 @@
+{
+  "name": "learn-eslint",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint *.vue"
+  },
+  "dependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.2.2"
+  }
+}

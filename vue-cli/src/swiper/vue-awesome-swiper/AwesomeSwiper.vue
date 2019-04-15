@@ -1,17 +1,14 @@
 <template>
   <div id='swiper'>
     <p>swiper demo</p>
-    <swiper ref='swiper'
-            class='swiper-style'
-            :options="swiperOption">
+    <swiper ref='swiper' class='swiper-style' :options="swiperOption" @slideChangeTransitionStart='handleChange'>
       <swiper-slide>Slide 1</swiper-slide>
       <swiper-slide>Slide 2</swiper-slide>
       <swiper-slide>Slide 3</swiper-slide>
       <swiper-slide>Slide 4</swiper-slide>
       <swiper-slide>Slide 5</swiper-slide>
       <swiper-slide>Slide 6</swiper-slide>
-      <div class="swiper-pagination"
-           slot="pagination"></div>
+      <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
 </template>
@@ -29,15 +26,10 @@ export default {
           el: '.swiper-pagination'
         },
         loop: true,
-        // autoplay: {
-        //   delay: 1000
-        // },
-        initialSlide: 0,
-        on: {
-          slideChangeTransitionStart: function() {
-            console.log(this.realIndex)
-          }
-        }
+        autoplay: {
+          delay: 1000
+        },
+        initialSlide: 0
       }
     }
   },
@@ -45,7 +37,7 @@ export default {
   watch: {},
   methods: {
     handleChange: function() {
-      console.log(this.$refs.swiper.swiper.activeIndex)
+      console.log(this.$refs.swiper.swiper.realIndex)
     }
   },
   mounted: function() {
