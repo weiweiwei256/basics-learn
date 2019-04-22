@@ -38,8 +38,9 @@
  * @return {string}
  */
 var longestCommonPrefix = function(strs) {
-  let shortestLength = Number.MAX_SAFE_iNTEGER;
-  let smallStr;
+  let shortestLength = Number.MAX_VALUE;
+  let smallStr = "";
+
   // 获取最短字符中
   for (let i = 0; i < strs.length; i++) {
     if (shortestLength > strs[i].length) {
@@ -53,13 +54,14 @@ var longestCommonPrefix = function(strs) {
   return smallStr;
 };
 var checkSamePrefix = function(smallStr, longStr) {
-  if (smallStr.length == 0) return "";
-  let i = 1;
+  if (smallStr == "") return "";
+  let i = 0;
   while (i <= smallStr.length) {
     if (longStr.startsWith(smallStr.slice(0, i))) {
       i++;
+    } else {
+      break;
     }
-    break;
   }
-  return smallStr.slice(0, i - 1);
+  return smallStr.slice(0,  i - 1);
 };
