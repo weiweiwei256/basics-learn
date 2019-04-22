@@ -27,43 +27,28 @@
  *     this.next = null;
  * }
  */
-/**
- * @param {ListNode} l1
- * @param {ListNode} l2
- * @return {ListNode}
- */
+
 var mergeTwoLists = function(l1, l2) {
-  var result = new ListNode();
-  var next = result.next;
-  var smallNodeVal;
-  while ((smallNodeVal = getSmallerNode(l1, l2))) {
-    if (smallNodeVal == null) {
-      return result;
+  var head = new ListNode();
+  var temp = head;
+  var result = null;
+  while (l1 != null || l2 != null) {
+    if (l1 == null) {
+      result = l2.val;
+      l2 = l2.next;
+    } else if (l2 == null) {
+      result = l1.val;
+      l1 = l1.next;
+    } else if (l1.val <= l2.val) {
+      result = l1.val;
+      l1 = l1.next;
+    } else if (l1.val > l2.val) {
+      result = l2.val;
+      l2 = l2.next;
     }
-    next = new ListNode(smallNodeVal);
-    next = next.next;
+    temp.next = new ListNode(result);
+    temp = temp.next;
   }
-};
-var getSmallerNode = function(node1, node2) {
-  console.log(node1);
-  console.log(node2);
-  var resultNode = null;
-  if (node1 == null && node2 == null) {
-    return null;
-  } else if (node1 == null) {
-    resultNode = node1;
-  } else if (node2 == null) {
-    resultNode = node2;
-  } else if (node1.val <= node2.val) {
-    resultNode = node1;
-  } else {
-    resultNode = node2;
-  }
-  // 更新偏移
-  let value = null;
-  if (resultNode) {
-    value = resultNode.val;
-    resultNode = resultNode.next;
-  }
-  return value;
+
+  return head.next;
 };
