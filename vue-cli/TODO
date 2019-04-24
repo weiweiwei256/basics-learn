@@ -4,5 +4,6 @@ Todo:
 Tips:
 ✔ 及时cropper不显示 也可以完成截图 @done(19-04-06 16:03)
 ✔ 触摸板响应通鼠标滚轮 @done(19-04-06 16:14)
+  ✘ 背景变黑是由于 cropImage.toDataURL('image/jpeg')导致   可通过canvas 填充白色解决 @cancelled(19-04-16 11:44)
   ☐ 存在重复图片的问题  是由于css样式 不当
   通过 cropper.setCropBoxData autoCrop等于true来设置截图范围

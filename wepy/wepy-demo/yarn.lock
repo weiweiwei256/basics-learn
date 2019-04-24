@@ -1457,10 +1457,10 @@ wepy-compiler-babel@^1.5.1:
   dependencies:
     babel-core "^6.20.0"
 
-wepy-compiler-less@^1.3.10:
+wepy-compiler-less@^1.3.14:
   version "1.3.14"
-  resolved "http://registry.npm.taobao.org/wepy-compiler-less/download/wepy-compiler-less-1.3.14.tgz#befbaaad356ab9cdff02734067d5fb6f09317a44"
-  integrity sha1-vvuqrTVquc3/AnNAZ9X7bwkxekQ=
+  resolved "https://registry.yarnpkg.com/wepy-compiler-less/-/wepy-compiler-less-1.3.14.tgz#befbaaad356ab9cdff02734067d5fb6f09317a44"
+  integrity sha512-70n7Rb0i987RBun9EC+aTBHsscwSb6Vb4r7l+dgOy2KGyyvPvmhh2vSQduxFnhJzHuYRYMV+hxH51Jss+jE+vg==
 
 wepy-redux@^1.5.3:
   version "1.5.9"
@@ -1469,10 +1469,10 @@ wepy-redux@^1.5.3:
   dependencies:
     redux "^2.0.0 || ^3.0.0"
 
-wepy@^1.6.0:
+wepy@^1.7.2:
   version "1.7.2"
-  resolved "http://registry.npm.taobao.org/wepy/download/wepy-1.7.2.tgz#679052401f2b1f4818644bc44f88b72975491a64"
-  integrity sha1-Z5BSQB8rH0gYZEvET4i3KXVJGmQ=
+  resolved "https://registry.yarnpkg.com/wepy/-/wepy-1.7.2.tgz#679052401f2b1f4818644bc44f88b72975491a64"
+  integrity sha512-22Q338OY2wV1kuINAtQQmO6V9r00wNTgLPOOOASZe8tdq0lGxv9FnFWxA7SqJihQJEeWXERFd/gN7GKQQ1CU1w==
 
 which@^1.2.9:
   version "1.3.1"

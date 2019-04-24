@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      // axios.defaults.withCredentials = true
+      // axios.defaults.crossDomain = true
+      axios.interceptors.request.use(config => {
+        config.header = {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        }
+        return config
+      })
+      axios
+        .get(
+          'http://image.baidu.com/search/index?tn=baiduimage&ps=1&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&word=%E8%8B%8D%E4%BA%95%E7%A9%BA',
+        )
+        .then(function(response) {
+          console.log(response)
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+    </script>
+  </head>
+  <body>
+    <div id="my_div"></div>
+  </body>
+</html>

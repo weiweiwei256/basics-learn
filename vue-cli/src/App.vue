@@ -7,7 +7,10 @@
 <script>
 
 export default {
-  name: 'app'
+  name: 'app',
+  mounted:function(){
+    console.log('app mounted')
+  }
 }
 </script>
 
@@ -16,7 +19,6 @@ export default {
 #app2 {
   width: 500px;
   height: 500px;
-  border: 1px solid #000;
   display: inline-block;
 }
 body {
@@ -29,7 +31,6 @@ body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   margin-top: 60px;
   height: 100%;
 }
