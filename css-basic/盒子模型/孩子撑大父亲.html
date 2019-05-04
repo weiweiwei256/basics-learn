@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>box</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      #my_div {
+        background-color: blue;
+        border: 5px solid green;
+        margin: 40px;
+        /* 撑开有效 */
+        overflow:hidden 
+      }
+      #child {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        /*  撑大父亲 */
+        margin-top: 200px; 
+      }
+    </style>
+  </head>
+  <body>
+    <div id="my_div">
+      <div id="child"></div>
+    </div>
+  </body>
+</html>
