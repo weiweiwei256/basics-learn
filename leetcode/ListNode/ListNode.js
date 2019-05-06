@@ -20,4 +20,7 @@ var traveseListNode = function(head) {
   }
 };
 let listNode = generateListNode([1, 2, 3]);
+let a = listNode;
+a = a.next;
+listNode = a;
 traveseListNode(listNode);
