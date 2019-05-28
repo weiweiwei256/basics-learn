@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="test-canvas" width="1000" height="1000">
+      <p>Your browser do not support canvas</p>
+    </canvas>
+  </body>
+  <script>
+    var canvas = document.getElementById('test-canvas')
+    if (canvas.getContext) {
+      console.log('你的浏览器支持Canvas!')
+    } else {
+      console.log('你的浏览器不支持Canvas!')
+    }
+  </script>
+  <script type="text/javascript">
+    var img = new Image()
+
+    // User Variables - customize these to change the image being scrolled, its
+    // direction, and the speed.
+
+    img.src = 'https://mdn.mozillademos.org/files/4553/Capitan_Meadows,_Yosemite_National_Park.jpg'
+    var CanvasXSize = 800
+    var CanvasYSize = 200
+    var speed = 30 //lower is faster
+    var scale = 1.05
+    var y = -4.5 //vertical offset
+
+    // Main program
+
+    var dx = 0.75
+    var imgW
+    var imgH
+    var x = 0
+    var clearX
+    var clearY
+    var ctx
+
+    img.onload = function() {
+      imgW = img.width * scale
+      imgH = img.height * scale
+      if (imgW > CanvasXSize) {
+        x = CanvasXSize - imgW
+      } // image larger than canvas
+      if (imgW > CanvasXSize) {
+        clearX = imgW
+      } // image larger than canvas
+      else {
+        clearX = CanvasXSize
+      }
+      if (imgH > CanvasYSize) {
+        clearY = imgH
+      } // image larger than canvas
+      else {
+        clearY = CanvasYSize
+      }
+      //Get Canvas Element
+      ctx = document.getElementById('test-canvas').getContext('2d')
+      //Set Refresh Rate
+      return setInterval(draw, speed)
+    }
+
+    function draw() {
+      //Clear Canvas
+      ctx.clearRect(0, 0, clearX, clearY)
+      //If image is <= Canvas Size
+      if (imgW <= CanvasXSize) {
+        //reset, start from beginning
+        if (x > CanvasXSize) {
+          x = 0
+        }
+        //draw aditional image
+        if (x > CanvasXSize - imgW) {
+          ctx.drawImage(img, x - CanvasXSize + 1, y, imgW, imgH)
+        }
+      }
+      //If image is > Canvas Size
+      else {
+        //reset, start from beginning
+        if (x > CanvasXSize) {
+          x = CanvasXSize - imgW
+        }
+        //draw aditional image
+        if (x > CanvasXSize - imgW) {
+          ctx.drawImage(img, x - imgW + 1, y, imgW, imgH)
+        }
+      }
+      //draw image
+      ctx.drawImage(img, x, y, imgW, imgH)
+      //amount to move
+      x += dx
+    }
+  </script>
+</html>

@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="test-canvas" width="1000" height="1000">
+      <p>Your browser do not support canvas</p>
+    </canvas>
+  </body>
+  <script>
+    var canvas = document.getElementById('test-canvas')
+    if (canvas.getContext) {
+      console.log('你的浏览器支持Canvas!')
+    } else {
+      console.log('你的浏览器不支持Canvas!')
+    }
+  </script>
+  <script type="text/javascript">
+    //获得画布元素
+    var canvas1 = document.getElementById('test-canvas')
+    //获得2维绘图的上下文
+    var ctx = canvas1.getContext('2d')
+    var test = function(){
+        console.log(new Date())
+        window.requestAnimationFrame(test)
+    }
+    window.requestAnimationFrame(test)
+  </script>
+</html>

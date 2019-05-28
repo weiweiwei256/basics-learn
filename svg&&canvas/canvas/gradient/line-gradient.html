@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      #test-canvas {
+        /* background-color: rgb(95, 95, 102); */
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="test-canvas" width="700" height="500">
+      <p>Your browser do not support canvas</p>
+    </canvas>
+  </body>
+  <script>
+    var draw = function(ctx) {
+      // Create gradients
+      var lingrad = ctx.createLinearGradient(0, 0, 350, 350)
+      lingrad.addColorStop(0, '#00ABEB')
+      lingrad.addColorStop(0.5, '#fff')
+      lingrad.addColorStop(0.5, '#26C000')
+      lingrad.addColorStop(1, '#fff')
+
+      var lingrad2 = ctx.createLinearGradient(0, 50, 0, 350)
+      lingrad2.addColorStop(0.5, '#000')
+      lingrad2.addColorStop(1, 'rgba(0,0,0,0)')
+
+      ctx.fillStyle = lingrad
+      ctx.strokeStyle = lingrad2
+
+      ctx.fillRect(0, 0, 300, 300)
+      ctx.strokeRect(2, 2, 500, 500)
+    }
+    var canvas = document.getElementById('test-canvas')
+    if (canvas.getContext) {
+      console.log('你的浏览器支持Canvas!')
+    } else {
+      console.log('你的浏览器不支持Canvas!')
+    }
+    draw(canvas.getContext('2d'))
+  </script>
+</html>

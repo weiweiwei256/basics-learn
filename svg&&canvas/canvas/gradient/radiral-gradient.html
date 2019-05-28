@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      #test-canvas {
+        /* background-color: rgb(95, 95, 102); */
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="test-canvas" width="700" height="500">
+      <p>Your browser do not support canvas</p>
+    </canvas>
+  </body>
+  <script>
+    var draw = function(ctx) {
+      var radgrad = ctx.createRadialGradient(200, 200, 10, 210, 210, 40)
+      radgrad.addColorStop(0, '#A7D30C')
+      radgrad.addColorStop(0.9, '#019F62')
+      radgrad.addColorStop(1, 'rgba(1,159,98,0)')
+
+      var radgrad2 = ctx.createRadialGradient(105, 105, 20, 112, 120, 50)
+      radgrad2.addColorStop(0, '#FF5F98')
+      radgrad2.addColorStop(0.75, '#FF0188')
+      radgrad2.addColorStop(1, 'rgba(255,1,136,0)')
+
+      var radgrad3 = ctx.createRadialGradient(95, 15, 15, 102, 20, 40)
+      radgrad3.addColorStop(0, '#00C9FF')
+      radgrad3.addColorStop(0.8, '#00B5E2')
+      radgrad3.addColorStop(1, 'rgba(0,201,255,0)')
+
+      var radgrad4 = ctx.createRadialGradient(0, 150, 50, 0, 140, 90)
+      radgrad4.addColorStop(0, '#F4F201')
+      radgrad4.addColorStop(0.8, '#E4C700')
+      radgrad4.addColorStop(1, 'rgba(228,199,0,0)')
+
+      // 画图形
+      ctx.fillStyle = radgrad4
+      ctx.fillRect(0, 0, 300, 300)
+      ctx.fillStyle = radgrad3
+      ctx.fillRect(0, 0, 300, 300)
+      ctx.fillStyle = radgrad2
+      ctx.fillRect(0, 0, 300, 300)
+      ctx.fillStyle = radgrad
+      ctx.fillRect(0, 0, 300, 300)
+    }
+    var canvas = document.getElementById('test-canvas')
+    if (canvas.getContext) {
+      console.log('你的浏览器支持Canvas!')
+    } else {
+      console.log('你的浏览器不支持Canvas!')
+    }
+    draw(canvas.getContext('2d'))
+  </script>
+</html>

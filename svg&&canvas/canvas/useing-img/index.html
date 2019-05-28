@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="test-canvas" width="500" height="500">
+      <p>Your browser do not support canvas</p>
+    </canvas>
+  </body>
+  <script>
+    var canvas = document.getElementById('test-canvas')
+    if (canvas.getContext) {
+      console.log('你的浏览器支持Canvas!')
+    } else {
+      console.log('你的浏览器不支持Canvas!')
+    }
+  </script>
+  <script type="text/javascript">
+    //获得画布元素
+    var canvas1 = document.getElementById('test-canvas')
+    //获得2维绘图的上下文
+    var ctx = canvas1.getContext('2d')
+    var img = new Image()
+    img.src = 'https://user-gold-cdn.xitu.io/2019/5/5/16a83c40349ecd5f?w=1053&h=464&f=png&s=9335'
+    // img.src = 'data:image/gif;base64,R0lGODlhCwALAIAAAAAA3pn/ZiH5BAEAAAEALAAAAAALAAsAAAIUhA+hkcuO4lmNVindo7qyrIXiGBYAOw==';
+    img.onload = function(){
+      console.log(`img loaded`)
+      ctx.drawImage(img,100,100,1000,1000,20,20,500,500)
+      // ctx.drawImage(img,100,100)
+    }
+  </script>
+</html>

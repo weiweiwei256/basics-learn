@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      #test-canvas {
+        background-color: rgb(95, 95, 102);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="test-canvas" width="700" height="500">
+      <p>Your browser do not support canvas</p>
+    </canvas>
+  </body>
+  <script>
+    var draw = function(ctx) {
+      ctx.fillStyle = 'orange'
+      ctx.strokeStyle = 'blue'
+      ctx.lineWidth = '5'
+      ctx.lineCap = 'round'
+      ctx.lineJoin = 'round'
+      ctx.setLineDash([3, 10])
+      ctx.fillRect(25, 25, 100, 100)
+      ctx.clearRect(45, 45, 60, 60)
+      ctx.strokeRect(50, 50, 50, 50)
+
+      ctx.beginPath()
+      ctx.moveTo(200, 50)
+      ctx.lineTo(200, 125)
+      ctx.lineTo(275, 125)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.arc(100, 300, 60, 0, Math.PI * 2, false)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.arc(80, 280, 10, 0, Math.PI * 2, true)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.arc(120, 280, 10, 0, Math.PI * 2, true)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.arc(100, 300, 40, Math.PI / 4, (Math.PI * 3) / 4, false)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.moveTo(500, 500)
+      ctx.quadraticCurveTo(300, 300, 200, 500)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.moveTo(500, 400)
+      ctx.bezierCurveTo(450, 300, 400, 400, 350, 300)
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.strokeRect(300, 50, 100, 50)
+
+      let rectangle = new Path2D()
+      // rectangle.rect(600, 10, 50, 50)
+
+      let circle = new Path2D()
+      circle.moveTo(625, 35)
+      circle.arc(500, 35, 25, 0, 2 * Math.PI)
+      ctx.stroke(rectangle)
+      ctx.fill(circle)
+    }
+    var canvas = document.getElementById('test-canvas')
+    if (canvas.getContext) {
+      console.log('你的浏览器支持Canvas!')
+    } else {
+      console.log('你的浏览器不支持Canvas!')
+    }
+    draw(canvas.getContext('2d'))
+  </script>
+</html>

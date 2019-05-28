@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="test-canvas" width="1000" height="1000">
+      <p>Your browser do not support canvas</p>
+    </canvas>
+  </body>
+  <script>
+    var canvas = document.getElementById('test-canvas')
+    if (canvas.getContext) {
+      console.log('你的浏览器支持Canvas!')
+    } else {
+      console.log('你的浏览器不支持Canvas!')
+    }
+  </script>
+  <script type="text/javascript">
+    //获得画布元素
+    var canvas1 = document.getElementById('test-canvas')
+    //获得2维绘图的上下文
+    var ctx = canvas1.getContext('2d')
+    ctx.rotate(Math.PI/16)
+    ctx.fillRect(0, 0, 150, 150) // 使用默认设置绘制一个矩形
+    ctx.save() // 保存默认状态
+
+    ctx.fillStyle = '#09F' // 在原有配置基础上对颜色做改变
+    ctx.fillRect(15, 15, 120, 120) // 使用新的设置绘制一个矩形
+    ctx.rotate(-Math.PI/8)
+    ctx.save() // 保存当前状态
+    ctx.fillStyle = '#FFF' // 再次改变颜色配置
+    ctx.globalAlpha = 0.5
+    ctx.fillRect(30, 30, 90, 90) // 使用新的配置绘制一个矩形
+
+    ctx.restore() // 重新加载之前的颜色状态
+    ctx.fillRect(45, 45, 60, 60) // 使用上一次的配置绘制一个矩形  具体是恢复颜色设置
+    ctx.rotate(-Math.PI/8)
+
+    ctx.restore() // 加载默认颜色配置
+    // ctx.transform(2, 0, 0.5, Math.PI/4, 50, 50);
+    ctx.fillRect(60, 60, 30, 30) // 使用加载的配置绘制一个矩形   具体是恢复颜色设置
+
+    ctx.scale(2,0.5)
+    for (var i = 0; i < 3; i++) {
+      for (var j = 0; j < 3; j++) {
+        ctx.save()
+        ctx.fillStyle = 'rgb(' + 51 * i + ', ' + (255 - 51 * i) + ', 255)'
+        ctx.translate(150 + j * 50, 150 + i * 50)
+        ctx.fillRect(0, 0, 25, 25)
+        ctx.restore()
+      }
+    }
+
+  </script>
+</html>
