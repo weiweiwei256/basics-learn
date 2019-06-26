@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="sendXHR()">send xhr</button>
+    <button onclick="sendJQueryAjax()">send jquery ajax</button>
+    <button onclick="sendJQueryGet()">send jquery get</button>
+    <button onclick="sendJQueryGetJSON()">send jquery getJSON</button>
+    <button onclick="sendFetch()">send fetch</button>
+  </body>
+  <script>
+    var url = 'http://localhost:8000/'
+    var sendXHR = function() {
+      let xhr = new XMLHttpRequest()
+      xhr.open('GET', url)
+      xhr.send()
+      xhr.onreadystatechange = function(e) {
+        console.log(e)
+        console.log(xhr.responseText)
+      }
+    }
+    var sendJQueryAjax = function() {
+      $.ajax(
+        {
+          url: url,
+          type: 'GET',
+          success: function(result) {
+            console.log(result)
+          },
+        },
+        {
+          error: function(err) {
+            console.log(err)
+          },
+        },
+      )
+    }
+    var sendJQueryGet = function() {
+      $.get(url, function(data, status) {
+        console.log(data)
+        console.log(status)
+      })
+    }
+    var sendJQueryGetJSON = function() {
+      $.getJSON(url, function(data, status) {
+        console.log(data)
+        console.log(status)
+      })
+    }
+    var sendFetch = function() {
+        var parm = {
+            method:'GET'
+        }
+      fetch(url,parm).then(data => {return data.json()}).then(res =>{console.log(res)})
+    }
+  </script>
+</html>
