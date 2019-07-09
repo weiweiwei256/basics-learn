@@ -5,11 +5,19 @@
 <script>
 export default {
   name: 'demo',
+  model: {
+    prop: 'select',
+    event: 'updateSelect'
+  },
+  props: {
+    select: {
+      type: String
+    }
+  },
   data: function() {
     return {}
   },
-  mounted: function() {
-  }
+  mounted: function() {}
 }
 </script>
 

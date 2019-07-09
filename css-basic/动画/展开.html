@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>展开收起</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      button {
+        font-size: 18px;
+        padding: 0 19px;
+      }
+      #con {
+        position: absolute;
+        width: 500px;
+        background: #ccc;
+        color: red;
+        font-size: 18px;
+        overflow: hidden;
+      }
+    </style>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  </head>
+  <body>
+    <button id="zk">展开</button>
+    <button id="sq">收起</button>
+    <div id="con">
+      展开收起动画效果 展开收起动画效果 展开收起动画效果 展开收起动画效果 展开收起动画效果
+      展开收起动画效果 展开收起动画效果 展开收起动画效果 展开收起动画效果 展开收起动画效果
+      展开收起动画效果 展开收起动画效果 展开收起动画效果 展开收起动画效果 展开收起动画效果
+      展开收起动画效果 展开收起动画效果 展开收起动画效果
+    </div>
+    <div>asdfasdfasdfasdfasdf</div>
+    <!--原生js的写法-->
+    <script type="text/javascript">
+      var zk = document.getElementById('zk')
+      var sq = document.getElementById('sq')
+      var con = document.getElementById('con')
+      var timer = null,
+        timer2 = null,
+        conHeight = con.clientHeight
+      sq.onclick = function() {
+        var h = conHeight
+        clearInterval(timer)
+        timer = setInterval(function() {
+          h -= 2
+          if (h <= 0) {
+            h = 0
+            clearInterval(timer)
+          }
+          con.style.height = h + 'px'
+        }, 10)
+      }
+      zk.onclick = function() {
+        var h = 0
+        clearInterval(timer2)
+        timer2 = setInterval(function() {
+          h += 2
+          if (h >= conHeight) {
+            h = conHeight
+            clearInterval(timer2)
+          }
+          con.style.height = h + 'px'
+        }, 10)
+      }
+    </script>
+    <!--jq的写法-->
+    <!-- <script type="text/javascript">
+      $('#sq').click(function() {
+        $('#con').slideUp(2000, 'swing', function() {})
+      })
+      $('#zk').click(function() {
+        $('#con').slideDown()
+      })
+    </script> -->
+  </body>
+</html>
