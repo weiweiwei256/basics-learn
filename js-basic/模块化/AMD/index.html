@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AMD DEMO</title>
+    <!-- IE需要defer完成异步加载 -->
+    <script src="./lib/require.js" defer async="true" data-main="src/main"></script>
+  </head>
+  <body>
+    <p>This is a demo for learning amd module standard.</p>
+    <button id='btn' onclick="handleClick()">invoke</button>
+  </body>
+  <script>
+    var handleClick = function() {
+        console.log(window)
+    }
+  </script>
+</html>
