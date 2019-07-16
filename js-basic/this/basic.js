@@ -1,3 +1,4 @@
+console.log(this)
 var obj = {
   birth: 1990,
   getAge: function() {
