@@ -1,13 +1,12 @@
-var name = "The Window";
+var name = 'The Window'
+
 var object = {
-  name: "My Object",
+  name: 'My Object',
   getNameFunc: function() {
-    var that = this;
-    console.log(this); // object
     return function() {
-      console.log(this); // window
-      return that.name;
-    };
-  }
-};
-console.log(object.getNameFunc()());
+      console.log(this.name)
+    }
+  },
+}
+
+object.getNameFunc().apply(object)

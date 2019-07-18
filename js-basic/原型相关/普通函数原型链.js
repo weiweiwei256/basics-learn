@@ -1,11 +1,27 @@
-function Person(a = "name") {
-  console.log(a);
+function Person(a = 'name') {
+  console.log(a)
 }
-console.log(Person);
-console.log(Person.prototype);
-console.log(Person.prototype.constructor===Person);
+console.log(Person)
+console.log(Person.prototype)
+console.log(Person.prototype.constructor === Person)
 console.log(Person.__proto__)
 console.log(Function.prototype)
 
-console.log(Person.prototype.__proto__===Object.prototype);
-console.log(Person.__proto__===Function.prototype)
+console.log(Person.prototype.__proto__ === Object.prototype)
+console.log(Person.__proto__ === Function.prototype)
+console.error('-------------------Function&Object----------------------------')
+var a = { data: 'yajun' }
+console.log(Object)
+console.log(a.__proto__ === Object.prototype)
+console.log(Object.prototype)
+console.log(Function.prototype)
+console.log(Object.__proto__)
+console.log(Object.prototype.__proto__)
+console.log(Object.__proto__ === Function.prototype)
+console.log(Object.__proto__ === Function.__proto__)
+console.log(Function.prototype === Function.__proto__)
+console.log(Object instanceof Function)
+console.log(Function instanceof Object)
+console.log(Object.prototype === Object.__proto__)
+console.log(Function.prototype.__proto__===Object.prototype)
+console.log(Function === Function.prototype)
