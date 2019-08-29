@@ -1,0 +1,68 @@
+<htmllang="zh-cn">
+
+    <head>
+        <meta="Content-Type"content="text/html; charset=utf-8">
+            <title>js事件机制</title>
+            <style>
+                #parent {
+                    width: 200px;
+                    height: 200px;
+                    text-align: center;
+                    line-height: 3;
+                    background: green;
+                }
+
+                #child {
+                    width: 100px;
+                    height: 100px;
+                    margin: 0 auto;
+                    background: orange;
+                }
+            </style>
+    </head>
+
+    <body>
+        <div id="parent">
+            父元素
+            <div id="child">子元素</div>
+        </div>
+        <button onfocus='handleFocus()'>test</button>
+    </body>
+    <script type="text/javascript">
+        var parent = document.getElementById("parent");
+        var child = document.getElementById("child");
+        document.addEventListener("click",function (e) {
+            console.log("bubbles click document");
+        }, false);
+        document.body.addEventListener("click",function (e) {
+            console.log("bubbles click-body");
+        }, false);
+        parent.addEventListener("click",function (e) {
+            console.log("bubbles  click-parent");
+        }, false);
+        child.addEventListener("click",function (e) {
+            console.log("bubbles  click-child");
+        }, false);
+
+        document.addEventListener("click",function (e) {
+            console.log("capture click document");
+        }, true);
+        document.body.addEventListener("click",function (e) {
+            console.log("capture  click-body");
+        }, true);
+        parent.addEventListener("click",function (e) {
+            console.log("capture click-parent");
+        }, true);
+        child.addEventListener("click",function (e) {
+            console.log("capture click-child");
+        }, true);
+        var handleFocus = function(){
+            var event = document.createEvent('MouseEvents');
+            // initEvent接受3个参数：
+            // 事件类型，是否冒泡，是否阻止浏览器的默认行为
+            event.initEvent("click", false, true);
+            //触发document上绑定的click事件
+            child.dispatchEvent(event);
+        }
+    </script>
+    </html>
