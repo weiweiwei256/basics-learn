@@ -1,0 +1,27 @@
+This is wei.txt
+n vim editor
+
+This is a test
+is This is
+This is
+
+This is
+
+This is 
+
+This is 各种插入模式
+a → 在光标后插入
+o → 在当前行后插入一个新行
+O → 在当前行前插入一个新行
+cw → 替换从光标所在位置后到一个单词结尾的字符
+简单的移动光标
+0 → 数字零，到行头
+^ → 到本行第一个不是blank字符的位置（所谓blank字符就是空格，tab，换行，回车等）
+$ →行行尾
+g_ → 到本行最后一个不是blank字符的位置。
+/pattern → 搜索 pattern 的字符串（陈皓注：如果搜索出多个匹配，可按n键到下一个）
+拷贝/粘贴 （陈皓注：p/P都可以，p是表示在当前位置之后，P表示在当前位置之前）
+P → 粘贴
+yy → 拷贝当前行当行于 ddP
+arn vim editor
+arn vim editor

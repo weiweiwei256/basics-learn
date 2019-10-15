@@ -1,0 +1,8 @@
+hello.sh
+hello1
+ls_result
+total 32
+-rw-r--r--  1 RUNNERUP  staff   62  9 10 21:35 hello.sh
+-rw-r--r--  1 RUNNERUP  staff   62  9 10 21:44 hello1
+-rw-r--r--@ 1 RUNNERUP  staff  225  9 10 21:50 ls_l_result
+-rw-r--r--  1 RUNNERUP  staff   26  9 10 21:47 ls_result

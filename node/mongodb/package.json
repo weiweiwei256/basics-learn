@@ -1,0 +1,16 @@
+{
+  "name": "test-mongodb",
+  "version": "1.0.0",
+  "description": "test-mongodb",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cron": "^1.7.2",
+    "mongodb": "^3.3.2"
+  }
+}

@@ -1,28 +1,30 @@
 <template>
-  <div id="cropper-demo">
-    <div id="image-container">
-      <img id="my-image" src="./testOrigin.jpg">
+    <div id="cropper-demo">
+        <p>r</p>
+        <div id="image-container">
+            <img id="my-image"
+                src="./testOrigin.jpg">
+        </div>
+        <button @click="getSomeData">get data</button>
+        <button @click="handleCrop">crop</button>
+        <div id="result">
+            <img id="result-img">
+        </div>
     </div>
-    <button @click="getSomeData">get data</button>
-    <button @click="handleCrop">crop</button>
-    <div id="result">
-      <img id="result-img">
-    </div>
-  </div>
 </template>
 <script>
 import 'cropperjs/dist/cropper.css'
 import Cropper from 'cropperjs'
 export default {
   name: 'cropper-demo',
-  data: function() {
+  data: function () {
     return {
       cropper: undefined
     }
   },
   methods: {
-    getSomeData: function() {
-      let containerData = this.cropper.getContainerData() //container data
+    getSomeData: function () {
+      let containerData = this.cropper.getContainerData() // container data
       console.log('container data', containerData)
       let canvasData = this.cropper.getCanvasData() // canvas 相对container的数据
       console.log('canvas data', canvasData)
@@ -33,16 +35,16 @@ export default {
       let cropperData = this.cropper.getData(true) // 剪切框相对于图片的数据
       console.log('cropper data', cropperData)
     },
-    handleCrop: function() {
-      let cropImage = this.cropper.getCroppedCanvas() //剪切框相对图片的canvas
+    handleCrop: function () {
+      let cropImage = this.cropper.getCroppedCanvas() // 剪切框相对图片的canvas
       let base64url = cropImage.toDataURL('image/jpeg', 0.7)
       console.log(base64url)
       console.log(base64url.length)
-      //生成base64图片的格式
-      $('#result-img').attr('src', base64url) //在body显示出canvas元素
+      // 生成base64图片的格式
+      $('#result-img').attr('src', base64url) // 在body显示出canvas元素
     }
   },
-  mounted: function() {
+  mounted: function () {
     // https://blog.csdn.net/weixin_38023551/article/details/78792400  to detail
     let image = document.querySelectorAll('#my-image')[0]
     this.cropper = new Cropper(image, {
@@ -64,14 +66,18 @@ export default {
       // preview: '#cropper-preview',
       // 预览:变换联动与查看，只是通过transform和overflow:hidden
       responsive: true,
-      //在调整窗口大小的时候重新渲染cropper   ???
-      //类型：Boolean 默认：true
+      // 在调整窗口大小的时候重新渲染cropper   ???
+      // 类型：Boolean 默认：true
       restore: true,
       // 在调整窗口大小后恢复裁剪的区域。 ???
       // 类型：Boolean 默认：true；
       checkCrossOrigin: true,
       // 检查当前图像是否为跨域图像。
       // 类型：Boolean 默认：true；
+      checkOrientation: false,
+      // 检查当前图像的Exif定向信息。（不知道干什么用的）
+      // 类型：Boolean 默认：true；
+      // 好像是移动端选择发生旋转变化的时候，触发的事件。
       modal: false,
       // 显示图片上方的黑色模态并在裁剪框下面。
       // 类型：Boolean 默认：true；
@@ -122,10 +128,10 @@ export default {
       // —是否通过拖动来调整剪裁框的大小。
       // 类型：Boolean 默认：true；
       toggleDragModeOnDblclick: false,
-      //—当点击两次时可以在“crop”和“move”之间切换拖拽模式，
+      // —当点击两次时可以在“crop”和“move”之间切换拖拽模式，
       // 类型：Boolean 默认：true；
       minContainerWidth: 200,
-      //容器的最小宽度
+      // 容器的最小宽度
       // 类型：Number 默认：200；
       minContainerHeight: 200,
       // —容器的最小高度。
