@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>上下边界塌陷效果和处理</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .box {
+    margin-top: 10px;
+    /* 边界折叠规范:https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing  */
+     /***
+    如果在父元素与其第一个子元素之间不存在边框、内边距、行内内容，也没有创建块格式化上下文、或者清除浮动将两者的 margin-top 分开；
+    或者在父元素与其最后一个子元素之间不存在边框、内边距、行内内容、height、min-height、max-height将两者的 margin-bottom 分开，那么这两对外边距之间会产生折叠。此时子元素的外边距会“溢出”到父元素的外面。
+    */
+    /* 上边界折叠处理 */
+    /* border: 10px solid green; */
+    /* overflow:hidden; */
+   
+   /* 下边界折叠处理 */
+    margin-bottom: 10px;
+  }
+
+  .item {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: red;
+  }
+
+  .bottom {
+    background-color: black;
+    width: 300px;
+    height: 300px;
+  }
+</style>
+
+<body>
+  <div class="box">
+    <div class="item">item</div>
+  </div>
+  <div class='bottom'></div>
+</body>
+
+</html>
