@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /** 
+        position:relative, 不脱离文本流,占原来位置
+        根据top,left,right,bottom偏移
+        
+        */
+        body {
+            padding: 20px;
+            height: 2000px;
+        }
+
+        .container {
+            width: 500px;
+            border: 5px solid rgb(111, 41, 97);
+            border-radius: .5em;
+            padding: 10px;
+            position: inherit;
+        }
+
+        .item-relative {
+            width: 100%;
+            background-color: rgba(111, 41, 97, .3);
+            position: relative;
+            top: 41px;
+        }
+
+        .inline-relative {
+            position: relative;
+            left: 38px;
+            top: -21px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <div class="container">
+            <div class="item-relative">
+                <p>Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava
+                    bean
+                    mustard tigernut jícama green bean celtuce. </p>
+            </div>
+            <div class="item">
+                <p>Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava
+                    bean
+                    mustard tigernut jícama green bean celtuce. </p>
+            </div>
+            <div class="item">
+                <p>Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava
+                    bean
+                    mustard tigernut jícama green bean celtuce. </p>
+            </div>
+
+            <span class='inline-relative'>asdfasdfasdf</span> <span>asdfasdfasdf</span> <span>asdfasdfasdf</span>
+        </div>
+    </body>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+        }
+
+        .sticky {
+            width: 100%;
+            background: #F6D565;
+            padding: 25px 0;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p style="margin-bottom:100px;">Scroll this page.</p>
+    <div class="sticky">
+        <h3>Super amazing header</h3>
+    </div>
+    <p style="margin-top:500px;">Still there?</p>
+    <p style="margin-top:500px;">Yep!</p>
+    <p style="margin-top:500px;">Scroll so hard!</p>
+    <script>
+        var sticky = document.querySelector('.sticky');
+        var origOffsetY = sticky.offsetTop;
+
+        function onScroll(e) {
+            window.scrollY >= origOffsetY ? sticky.classList.add('fixed') :
+                sticky.classList.remove('fixed');
+        }
+
+        document.addEventListener('scroll', onScroll);  
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 20px;
+            height: 2000px;
+        }
+
+        .container {
+            width: 500px;
+            height: 1300px;
+            border: 5px solid rgb(111, 41, 97);
+            border-radius: .5em;
+            padding: 10px;
+            position: relative;
+            overflow: visible;
+        }
+
+        /**
+        *   粘性定位可以被认为是相对定位（relative）和固定定位（fixed）的混合。元素在跨越特定阈值前为相对定位，之后为固定定位。
+        *   也就是说sticky会让元素在页面滚动时如同在正常流中（relative定位效果），但当滚动到特定位置时就会固定在屏幕上如同 fixed ，这个特定位置就是指定 的top, right, bottom 或 left 四个阈值其中之一
+        *
+        *使用条件：
+        *    1、父元素不能overflow:hidden或者overflow:auto属性。
+        *    2、必须指定top、bottom、left、right4个值之一，否则只会处于相对定位
+        *    3、父元素的高度不能低于sticky元素的高度
+        *    4、sticky元素仅在其父元素内生效
+        *
+        *    父元素可以设置高度  overflow:visible或者不设置
+        *
+        */
+
+
+
+        .item {
+            height: 30px;
+            width: 100%;
+            background-color: rgba(111, 41, 97, .3);
+            position: sticky;
+            top: 50px;
+        }
+        /* 如何相对外层父元素黏连    不可以  sticky元素仅在其父元素内生效 */
+        .sticky-container {
+            height:400px;
+            background-color:goldenrod;
+            /* position:relative; */
+            /* position:inherit; */
+            /* position: initial; */
+            /* position:unset; */
+            overflow: auto;
+        }
+
+        .item2 {
+            height: 30px;
+            width: 100%;
+            background-color: red;
+            position: sticky;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <div class="container">
+            <p>Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava bean
+                mustard tigernut jícama green bean celtuce. </p>
+            <div class="item"></div>
+            <p>Grape silver beet collard greens avocado quandong fennel gumbo black-eyed pea watercress potato tigernut
+                corn groundnut. Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels
+                sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. Gumbo kakadu plum
+                komatsuna black-eyed pea green bean zucchini gourd winter purslane silver beet rock melon radish
+                asparagus spinach.</p>
+            <p>Grape silver beet collard greens avocado quandong fennel gumbo black-eyed pea watercress potato tigernut
+                corn groundnut. Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels
+                sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. Gumbo kakadu plum
+                komatsuna black-eyed pea green bean zucchini gourd winter purslane silver beet rock melon radish
+                asparagus spinach.</p>
+            <div class='sticky-container'>
+                <div class="item2"></div>
+            </div>
+            <p>Grape silver beet collard greens avocado quandong fennel gumbo black-eyed pea watercress potato tigernut
+                corn groundnut. Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels
+                sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. Gumbo kakadu plum
+                komatsuna black-eyed pea green bean zucchini gourd winter purslane silver beet rock melon radish
+                asparagus spinach.</p>
+        </div>
+    </body>
+
+</body>
+
+</html>
