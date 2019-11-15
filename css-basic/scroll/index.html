@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    html,
+    body,
+    #root {
+        margin: 0;
+        height: 100%;
+
+    }
+
+    #root {
+        background-color: gray;
+        overflow: hidden;
+    }
+
+    #main-container {
+        margin-top: 100px;
+        height: 600px;
+        border: 2px solid greenyellow;
+        overflow: auto;
+    }
+
+    #big-content {
+        height: 900px;
+        margin: 0 auto;
+        margin: 50px;
+        border: 2px solid green;
+
+    }
+
+    #small {
+        height: 600px;
+        margin: 0 auto;
+        margin: 50px;
+        overflow: auto;
+        border: 2px solid black;
+    }
+
+    #big-content2 {
+        height: 1000px;
+        margin: 0 auto;
+        margin: 50px;
+        border: 2px solid red;
+    }
+</style>
+
+<body>
+    <div id='root'>
+        <div id='main-container'>
+            <div id='big-content'>
+                <div id='small'>
+                    <div id='big-content2'></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let small = document.getElementById('small')
+    let content2 = document.getElementById('big-content2')
+    console.log(small)
+    let scrollTop = 0;
+    small.addEventListener("scroll", function (e) {
+        if (!scrollTop) {
+            scrollTop = e.target.scrollTop;
+        } else if (scrollTop < e.target.scrollTop) {
+            scrollTop = e.target.scrollTop;
+            console.log('向下滚动')
+        } else if (scrollTop > e.target.scrollTop) {
+            scrollTop = e.target.scrollTop;
+            console.log('向上滚动')
+        }
+        //阻止浏览器页面滚动的默认事件
+        e.preventDefault();
+        e.stopPropagation();
+        e.cancelBubble = true;
+        e.returnValue = false;
+        return false;
+    });
+
+</script>
+
+</html>

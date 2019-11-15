@@ -15,13 +15,7 @@ export default {
 </script>
 
 <style>
-#app1,
-#app2 {
-  width: 500px;
-  height: 500px;
-  display: inline-block;
-}
-body {
+html,body {
   height: 100%;
 }
 * {

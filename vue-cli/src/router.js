@@ -12,10 +12,15 @@ import BetterScrollDemo from '@/swiper/better-scroll/BetterScrollDemo.vue'
 import DomToImg from '@/domToImg/DomToImg.vue'
 import CropperDemo from '@/cropper/CropperDemo.vue'
 import TrackDemo from '@/track/TrackDemo.vue'
+import VantDemo from '@/test-vant/VantDemo.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/VantDemo',
+      component: VantDemo
+    },
     {
       path: '/Demo',
       component: Demo

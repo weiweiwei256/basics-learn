@@ -1,14 +1,21 @@
 {
-  "presets": [
-    ["env", { "modules": false }],
-    "stage-2"
+  "presets": [["env", { "modules": false }], "stage-2"],
+  "plugins": [
+    "transform-runtime",
+    [
+      "import",
+      {
+        "libraryName": "vant",
+        "libraryDirectory": "es",
+        "style": true
+      }
+    ]
   ],
-  "plugins": ["transform-runtime"],
   "comments": false,
   "env": {
     "test": {
       "presets": ["env", "stage-2"],
-      "plugins": [ "istanbul" ]
+      "plugins": ["istanbul"]
     }
   }
 }

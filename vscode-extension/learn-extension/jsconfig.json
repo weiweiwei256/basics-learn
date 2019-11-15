@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"module": "none",
+		"target": "es6",
+		"outDir": "out",
+		"checkJs": true,  /* Typecheck .js files. */
+		"lib": [
+			"es6"
+		],
+		"sourceMap": true,
+	},
+	"exclude": [
+		"node_modules"
+	]
+}
