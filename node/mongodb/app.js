@@ -6,7 +6,7 @@ const CronJob = require('cron').CronJob
 const axios = require('axios')
 const INDEX_STRING =
     '<span class="installs-text" title="The number of unique installations, not including updates.">'
-
+const VERSION_PREFIX = '"ExtensionName":"super-encourager","Version":"'
 function getDownLoadCount() {
     return axios
         .get('https://marketplace.visualstudio.com/items?itemName=RUNNERUP.super-encourager')
@@ -14,11 +14,15 @@ function getDownLoadCount() {
             let htmlContent = data.data
             let a = htmlContent.indexOf(INDEX_STRING) + INDEX_STRING.length
             let b = htmlContent.indexOf('installs', a)
+            let c = htmlContent.indexOf(VERSION_PREFIX)
+            let d = htmlContent.indexOf('"},"MoreInfo":')
+            let version = htmlContent.substring(c + VERSION_PREFIX.length, d)
             if (parseInt(htmlContent.substring(a, b).trim())) {
                 console.log('获取下载数量成功')
                 return {
                     timestamp: Date.now(),
                     count: parseInt(htmlContent.substring(a, b).trim()),
+                    version: version,
                 }
             } else {
                 console.log('获取下载数量失败')
