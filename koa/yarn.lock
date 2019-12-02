@@ -25,6 +25,42 @@ any-promise@^1.0.0, any-promise@^1.1.0:
   resolved "https://registry.npm.taobao.org/any-promise/download/any-promise-1.3.0.tgz#abc6afeedcea52e809cdc0376aed3ce39635d17f"
   integrity sha1-q8av7tzqUugJzcA3au0845Y10X8=
 
+apollo-cache-control@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.npm.taobao.org/apollo-cache-control/download/apollo-cache-control-0.1.1.tgz?cache=0&sync_timestamp=1574360791674&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fapollo-cache-control%2Fdownload%2Fapollo-cache-control-0.1.1.tgz#173d14ceb3eb9e7cb53de7eb8b61bee6159d4171"
+  integrity sha1-Fz0UzrPrnny1Pefri2G+5hWdQXE=
+  dependencies:
+    graphql-extensions "^0.0.x"
+
+apollo-server-core@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npm.taobao.org/apollo-server-core/download/apollo-server-core-1.4.0.tgz?cache=0&sync_timestamp=1574360792278&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fapollo-server-core%2Fdownload%2Fapollo-server-core-1.4.0.tgz#4faff7f110bfdd6c3f47008302ae24140f94c592"
+  integrity sha1-T6/38RC/3Ww/RwCDAq4kFA+UxZI=
+  dependencies:
+    apollo-cache-control "^0.1.0"
+    apollo-tracing "^0.1.0"
+    graphql-extensions "^0.0.x"
+
+apollo-server-koa@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npm.taobao.org/apollo-server-koa/download/apollo-server-koa-1.4.0.tgz#59accc941d02ab2b2f8c7e76426a20b7a0ad5a3a"
+  integrity sha1-WazMlB0CqysvjH52Qmogt6CtWjo=
+  dependencies:
+    apollo-server-core "^1.4.0"
+    apollo-server-module-graphiql "^1.4.0"
+
+apollo-server-module-graphiql@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npm.taobao.org/apollo-server-module-graphiql/download/apollo-server-module-graphiql-1.4.0.tgz#c559efa285578820709f1769bb85d3b3eed3d8ec"
+  integrity sha1-xVnvooVXiCBwnxdpu4XTs+7T2Ow=
+
+apollo-tracing@^0.1.0:
+  version "0.1.4"
+  resolved "https://registry.npm.taobao.org/apollo-tracing/download/apollo-tracing-0.1.4.tgz?cache=0&sync_timestamp=1574360791425&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fapollo-tracing%2Fdownload%2Fapollo-tracing-0.1.4.tgz#5b8ae1b01526b160ee6e552a7f131923a9aedcc7"
+  integrity sha1-W4rhsBUmsWDublUqfxMZI6mu3Mc=
+  dependencies:
+    graphql-extensions "~0.0.9"
+
 babel-code-frame@^6.26.0:
   version "6.26.0"
   resolved "https://registry.npm.taobao.org/babel-code-frame/download/babel-code-frame-6.26.0.tgz#63fd43f7dc1e3bb7ce35947db8fe369a3f58c74b"
@@ -672,6 +708,11 @@ bson@^1.1.1, bson@~1.1.1:
   resolved "https://registry.npm.taobao.org/bson/download/bson-1.1.3.tgz#aa82cb91f9a453aaa060d6209d0675114a8154d3"
   integrity sha1-qoLLkfmkU6qgYNYgnQZ1EUqBVNM=
 
+buffer-from@^1.0.0:
+  version "1.1.1"
+  resolved "https://registry.npm.taobao.org/buffer-from/download/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
+  integrity sha1-MnE7wCj3XAL9txDXx7zsHyxgcO8=
+
 bytes@3.1.0:
   version "3.1.0"
   resolved "https://registry.npm.taobao.org/bytes/download/bytes-3.1.0.tgz#f6cf7933a360e0588fa9fde85651cdc7f805d1f6"
@@ -748,7 +789,7 @@ copy-to@^2.0.1:
   resolved "https://registry.npm.taobao.org/copy-to/download/copy-to-2.0.1.tgz#2680fbb8068a48d08656b6098092bdafc906f4a5"
   integrity sha1-JoD7uAaKSNCGVrYJgJK9r8kG9KU=
 
-core-js@^2.4.0, core-js@^2.5.0:
+core-js@^2.4.0, core-js@^2.5.0, core-js@^2.5.3:
   version "2.6.10"
   resolved "https://registry.npm.taobao.org/core-js/download/core-js-2.6.10.tgz#8a5b8391f8cc7013da703411ce5b585706300d7f"
   integrity sha1-iluDkfjMcBPacDQRzltYVwYwDX8=
@@ -846,6 +887,28 @@ globals@^9.18.0:
   resolved "https://registry.npm.taobao.org/globals/download/globals-9.18.0.tgz#aa3896b3e69b487f17e31ed2143d69a8e30c2d8a"
   integrity sha1-qjiWs+abSH8X4x7SFD1pqOMMLYo=
 
+graphql-extensions@^0.0.x, graphql-extensions@~0.0.9:
+  version "0.0.10"
+  resolved "https://registry.npm.taobao.org/graphql-extensions/download/graphql-extensions-0.0.10.tgz?cache=0&sync_timestamp=1574360788329&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgraphql-extensions%2Fdownload%2Fgraphql-extensions-0.0.10.tgz#34bdb2546d43f6a5bc89ab23c295ec0466c6843d"
+  integrity sha1-NL2yVG1D9qW8iasjwpXsBGbGhD0=
+  dependencies:
+    core-js "^2.5.3"
+    source-map-support "^0.5.1"
+
+graphql-server-koa@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.npm.taobao.org/graphql-server-koa/download/graphql-server-koa-1.4.1.tgz#10377979bb0818176880f43d7dffa3bf35df81b0"
+  integrity sha1-EDd5ebsIGBdogPQ9ff+jvzXfgbA=
+  dependencies:
+    apollo-server-koa "^1.4.0"
+
+graphql@^14.5.8:
+  version "14.5.8"
+  resolved "https://registry.npm.taobao.org/graphql/download/graphql-14.5.8.tgz#504f3d3114cb9a0a3f359bbbcf38d9e5bf6a6b3c"
+  integrity sha1-UE89MRTLmgo/NZu7zzjZ5b9qazw=
+  dependencies:
+    iterall "^1.2.2"
+
 has-ansi@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/has-ansi/download/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
@@ -935,6 +998,11 @@ isarray@0.0.1:
   version "0.0.1"
   resolved "https://registry.npm.taobao.org/isarray/download/isarray-0.0.1.tgz?cache=0&sync_timestamp=1562592125418&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fisarray%2Fdownload%2Fisarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
   integrity sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
+
+iterall@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npm.taobao.org/iterall/download/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
+  integrity sha1-ktcN64Ao4MOf8xZP2/TYsIgTDNc=
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
@@ -1398,10 +1466,23 @@ source-map-support@^0.4.15:
   dependencies:
     source-map "^0.5.6"
 
+source-map-support@^0.5.1:
+  version "0.5.16"
+  resolved "https://registry.npm.taobao.org/source-map-support/download/source-map-support-0.5.16.tgz?cache=0&sync_timestamp=1572390065703&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsource-map-support%2Fdownload%2Fsource-map-support-0.5.16.tgz#0ae069e7fe3ba7538c64c98515e35339eac5a042"
+  integrity sha1-CuBp5/47p1OMZMmFFeNTOerFoEI=
+  dependencies:
+    buffer-from "^1.0.0"
+    source-map "^0.6.0"
+
 source-map@^0.5.6, source-map@^0.5.7:
   version "0.5.7"
   resolved "https://registry.npm.taobao.org/source-map/download/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
+
+source-map@^0.6.0:
+  version "0.6.1"
+  resolved "https://registry.npm.taobao.org/source-map/download/source-map-0.6.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsource-map%2Fdownload%2Fsource-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+  integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
 
 sparse-bitfield@^3.0.3:
   version "3.0.3"
