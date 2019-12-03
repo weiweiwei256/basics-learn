@@ -8,18 +8,19 @@ require('./schema/student')
 
 // 链接mongodb
 export const database = () => {
-  mongoose.set('debug', true)
+    mongoose.set('debug', true)
+    console.log(config.dbPath)
+    mongoose.connect(config.dbPath, { useNewUrlParser: true, useUnifiedTopology: true })
 
-  mongoose.connect(config.dbPath)
+    mongoose.connection.on('disconnected', err => {
+        console.error('------------------链接失败-------------------')
+        // mongoose.connect(config.dbPath)
+    })
+    mongoose.connection.on('error', err => {
+        console.error(err)
+    })
 
-  mongoose.connection.on('disconnected', () => {
-    mongoose.connect(config.dbPath)
-  })
-  mongoose.connection.on('error', err => {
-    console.error(err)
-  })
-
-  mongoose.connection.on('open', async () => {
-    console.log('Connected to MongoDB ', config.dbPath)
-  })
+    mongoose.connection.on('open', async () => {
+        console.log('Connected to MongoDB ', config.dbPath)
+    })
 }

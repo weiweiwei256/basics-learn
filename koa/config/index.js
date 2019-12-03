@@ -1,3 +1,3 @@
 export default {
-    dbPath: 'mongodb://localhost/graphql'
+    dbPath: `mongodb://my_tester:123456@127.0.0.1:27017?authenticationDatabase=test`
   }

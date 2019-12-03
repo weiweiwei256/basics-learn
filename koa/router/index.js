@@ -10,9 +10,6 @@ router
     .post('/savestudent', saveStudent)
     .get('/student', fetchStudent)
     .get('/studentDetail', fetchStudentDetail)
-    .get('/graphiql', async (ctx, next) => {
-        await graphiqlKoa({ endpointURL: '/graphql' })(ctx, next)
-    })
 
 router
     .post('/graphql', async (ctx, next) => {
