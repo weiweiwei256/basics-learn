@@ -9,7 +9,6 @@ require('./schema/student')
 // 链接mongodb
 export const database = () => {
     mongoose.set('debug', true)
-    console.log(config.dbPath)
     mongoose.connect(config.dbPath, { useNewUrlParser: true, useUnifiedTopology: true })
 
     mongoose.connection.on('disconnected', err => {

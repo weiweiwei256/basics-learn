@@ -45,14 +45,25 @@ export let InfoType = new GraphQLObjectType({
 
 export const infos = {
     type: new GraphQLList(InfoType),
-    args: {},
+    args: {
+        height: {
+            name: 'height',
+            type: new GraphQLList(GraphQLString),
+        },
+    },
     resolve(root, params, options) {
-        return Info.find({}).exec()
+        if (params.height) {
+            return Info.find({
+                height: params.height,
+            }).exec()
+        } else {
+            return Info.find({}).exec()
+        }
     },
 }
 
 export const info = {
-    type: InfoType,
+    type: new GraphQLList(InfoType),
     args: {
         id: {
             name: 'id',

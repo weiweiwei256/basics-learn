@@ -21,3 +21,4 @@ app.use(router.routes()).use(router.allowedMethods())
 
 const port = 4000
 app.listen(port)
+console.log('server is starting!')
