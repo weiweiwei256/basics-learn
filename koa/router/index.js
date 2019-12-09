@@ -1,11 +1,12 @@
 import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa'
-import { saveInfo, fetchInfo } from '../controllers/info'
+import { saveInfo,removeInfo, fetchInfo } from '../controllers/info'
 import { saveStudent, fetchStudent, fetchStudentDetail } from '../controllers/student'
 import schema from '../graphql/schema'
 const router = require('koa-router')()
 
 router
     .post('/saveinfo', saveInfo)
+    .post('/removeinfo', removeInfo)
     .get('/info', fetchInfo)
     .post('/savestudent', saveStudent)
     .get('/student', fetchStudent)
