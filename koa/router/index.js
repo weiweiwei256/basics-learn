@@ -1,5 +1,5 @@
 import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa'
-import { saveInfo,removeInfo, fetchInfo } from '../controllers/info'
+import { saveInfo,removeInfo,updateInfo, fetchInfo } from '../controllers/info'
 import { saveStudent, fetchStudent, fetchStudentDetail } from '../controllers/student'
 import schema from '../graphql/schema'
 const router = require('koa-router')()
@@ -7,6 +7,7 @@ const router = require('koa-router')()
 router
     .post('/saveinfo', saveInfo)
     .post('/removeinfo', removeInfo)
+    .post('/updateinfo', updateInfo)
     .get('/info', fetchInfo)
     .post('/savestudent', saveStudent)
     .get('/student', fetchStudent)
