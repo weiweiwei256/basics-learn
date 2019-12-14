@@ -14,7 +14,7 @@ function getDownLoadCount() {
             let htmlContent = data.data
             let a = htmlContent.indexOf(INDEX_STRING) + INDEX_STRING.length
             let b = htmlContent.indexOf('installs', a)
-            if (parseInt(htmlContent.substring(a, b).trim())) {
+            if (parseInt(htmlContent.substring(a, b).trim().replace(/[^0-9]/ig,""))) {
                 console.log('获取下载数量成功')
                 return {
                     timestamp: Date.now(),
