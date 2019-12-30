@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>检测Object</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // （无法区分自定义对象类型，自定义类型可以采用instanceof区分）
+    function checkObject() {
+        // Array ，function等类型作为Object的实例，都重写了toString方法。  无法调用到Object上的
+        return Object.prototype.toString.call(obj) === "[object Object]"
+    }
+</script>
+
+</html>

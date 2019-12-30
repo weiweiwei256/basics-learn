@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>柯里化</title>
+</head>
+
+<body>
+    柯里化
+</body>
+<script>
+    // 柯里化是将一个多参数函数转换成多个单参数函数，也就是将一个 n 元函数转换成 n 个一元函数。
+    function curry(func) {
+        return function (a) {
+            return function (b) {
+                return func(a, b);
+            };
+        };
+    }
+    // usage
+    function sum(a, b) {
+        return a + b;
+    }
+
+    let carriedSum = curry(sum);
+    alert(carriedSum(1)(2)); // 3
+    console.error('-------------------高级柯里化----------------------')
+    function hcurry(func) {
+        return function curried(...args) {
+            if (args.length >= func.length) {//如果参数大于等于函数参数，那么允许函数提供全部参数被正常调用
+                return func.apply(this, args);
+            } else {//提供参数小于函数参数，返回偏函数
+                return function pass(...args2) {
+                    return curried.apply(this, args.concat(args2));
+                }
+            }
+        };
+    }
+
+    function sum(a, b, c) {
+        return a + b + c;
+    }
+
+    let curriedSum = hcurry(sum);
+
+    // 提供全部参数，正常调用
+    alert(curriedSum(1, 2, 3)); // 6
+
+    // 返回偏函数包装器，并提供2、3参数
+    alert(curriedSum(1)(2, 3)); // 6
+</script>
+
+</html>

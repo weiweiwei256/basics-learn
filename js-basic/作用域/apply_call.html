@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>apply_call</title>
+</head>
+
+<body>
+  <p>apply_call</p>
+</body>
+<script>
+  // bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。
+  let o = {
+    name: `o's name`,
+    say(arg1, arg2) {
+      console.log(this.name)
+      console.log(arg1)
+      console.log(arg2)
+    }
+  }
+  o.say('arg1', 'arg2');
+  let o2 = {
+    name: `o2's name`,
+  }
+  o.say.apply(o2, ['apply1', 'apply2'])
+  o.say.call(o2, 'call1', 'call2')
+
+
+</script>
+
+</html>

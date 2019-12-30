@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>偏函数</title>
+</head>
+
+<body>
+    偏函数
+</body>
+<script>
+    // 偏函数应用——我们创造一个新函数，让现有的一些参数值固定。
+    function mul(a, b) {
+        return a * b;
+    }
+    let double = mul.bind(null, 2);
+    console.log((double(3)))
+</script>
+
+</html>

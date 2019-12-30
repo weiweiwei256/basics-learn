@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bind</title>
+</head>
+
+<body>
+    <p>bind</p>
+</body>
+<script>
+    // bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。
+    var altwrite = document.write;
+    // altwrite("hello");   this指向window 出问题了
+    altwrite.bind(document)("hello")
+
+    console.error('-------------------不改变this指向----------------------')
+    this.num = 9;
+    var mymodule = {
+        num: 81,
+        getNum: function () {
+            console.log(this.num);
+        }
+    };
+
+    mymodule.getNum(); // 81
+
+    var getNum = mymodule.getNum;
+    getNum(); // 9, 因为在这个例子中，"this"指向全局对象
+
+    var boundGetNum = getNum.bind(mymodule);
+    boundGetNum(); // 81
+
+    //
+    var bar = '12341234'
+    // var foo = {
+    //     bar: 1,
+    //     eventBind: function () {
+    //         var _this = this;
+    //         return function (event) {
+    //             /* Act on the event */
+    //             console.log(_this.bar);     //1
+    //         };
+    //     }
+    // }
+    var foo = {
+        bar: 'foo-bar',
+        eventBind: function () {
+            return function (event) {
+                /* Act on the event */
+                console.log(this.bar);     //1
+            }.bind(this);
+        }
+    }
+    foo.eventBind()();
+</script>
+
+</html>

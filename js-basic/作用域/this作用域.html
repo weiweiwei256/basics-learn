@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>this 作用域</title>
+</head>
+
+<body>
+  <p>this 作用域测试</p>
+</body>
+<script>
+  var name = "winow's name"
+  console.error('-------------------1----------------------')
+  // 1.函数调用模式
+  function a() {
+    var name = 'hello'
+    console.log(name)
+    console.log(this.name)
+    console.log(this)
+  }
+  a();
+  // 改变a 的位置
+  var o = { txt: "o's txt" }
+  o.fun = a;
+  o.fun()
+  console.error('-------------------2----------------------')
+  // 2. 方法调用模式
+  var o2 = {
+    name: 'o2 name',
+    func: function () {
+      console.log(name)
+      console.log(this.name)
+      console.log(this)
+    },
+    arrFunc: () => {
+      console.log(name)
+      console.log(this.name)
+      console.log(this)
+    }
+  }
+  o2.func();
+  o2.arrFunc();
+  console.error('-------------------2.1----------------------')
+  // 2.1 对象嵌套
+  var o3 = {
+    name: `o3's name`,
+    child: {
+      name: `child's name`,
+      func() {
+        console.log(name)
+        console.log(this.name)
+        console.log(this)
+      }
+    }
+  }
+  o3.child.func();
+  var o4 ={
+    name:`o4's name`
+  }
+  o4.fun = o3.child.func;
+  o4.fun();
+  var f = o3.child.func;
+  f();
+</script>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>this 作用域</title>
+</head>
+
+<body>
+  <p>this 作用域测试</p>
+</body>
+<script>
+  var test = {
+    a: 5,
+    b: 6,
+    sum: function (a, b) {
+      console.log('sum', this)
+      function getA(a) {
+        console.log('getA', this)
+        this.a = a;         // 在window上增加了一个全局变量a
+        return this.a;     // 此处this = window
+      }
+      function getB(b) {
+        this.b = b;         //在window上增加了一个全局变量b
+        return this.b;     // 此处this = window
+      }
+      return getA(a) + getB(b);
+    }
+  }
+  console.log(test.sum(4, 3));  // 7
+  console.log(a);              // 4     
+  console.log(b);              // 3
+</script>
+
+</html>

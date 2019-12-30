@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>arguments</title>
+</head>
+
+<body>
+    arguments
+</body>
+<script>
+    // Javascript中存在一种名为伪数组的对象结构。比较特别的是 arguments 对象，还有像调用 getElementsByTagName , document.childNodes 之类的，
+    // 它们返回NodeList对象都属于伪数组。
+    // 不能应用 Array下的 push , pop 等方法。
+    function log() {
+        console.log(log.length) // 方法定义时的参数个数
+        console.log(arguments)
+        console.log.apply(console, arguments);
+        var args = Array.prototype.slice.call(arguments);
+        args.unshift('(app)');
+        console.log(args)
+        console.log.apply(console, args);// apply 从数组里解析参数
+        console.log('a', 'b', 'c')
+    };
+    log('aa', 'bb')
+</script>
+
+</html>

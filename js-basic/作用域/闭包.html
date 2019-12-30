@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>闭包</title>
+</head>
+
+<body>
+  <p>闭包</p>
+</body>
+<script>
+  function func1() {
+    var num = 1;
+    function func2() {
+      console.log(this)
+      return num;
+    }
+    return func2;
+  }
+  var num = func1()();
+  console.log(num);
+  console.error('-------------------测试----------------------')
+  var name = "The Window";
+  var object = {
+    name: 'My Object',
+    getNameFunc: function () {
+      return function () {
+        console.log(this.name)
+        console.log(name)
+        return this.name;
+      };
+    }
+  }
+  console.log(object.getNameFunc()());
+</script>
+
+</html>

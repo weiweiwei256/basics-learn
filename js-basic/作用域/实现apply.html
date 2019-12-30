@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实现apply</title>
+</head>
+
+<body>
+    实现apply
+</body>
+<script>
+    // 第一版
+    Function.prototype.applyOne = function (context, argArr) {
+        var context = context || window // 支持默认参数
+        var argArr = argArr || [];
+        // 首先要获取调用call的函数，用this可以获取
+        var fn = Symbol()
+        context[fn] = this;
+        context[fn](...argArr);
+        delete context[fn];
+    }
+    Function.prototype.callOne = function (context, ...arg) {
+        this.applyOne(context, arg)  // ? 如何调用
+    }
+    Function.prototype.bind = function (context) {
+        var _this = this;
+        return function (...arg) {
+            return _this.applyOne(context, arg)
+        }
+        // ? 如何调用
+    }
+    //简单写一个不带参数的demo
+    var jawil = {
+        name: "jawil",
+        sayHello: function (age, sex) {
+            console.log('say hello' + this.name + 'age:' + age + 'sex:' + sex);
+        }
+    };
+    // jawil.sayHello('21')
+    var lulin = {
+        name: "lulin",
+    };
+
+    //看看结果：
+    jawil.sayHello.applyOne(lulin)
+    jawil.sayHello.applyOne(lulin, [23, '男'])//lulin
+    jawil.sayHello.callOne(lulin)
+    jawil.sayHello.callOne(lulin, 23, '男')//lulin
+    jawil.sayHello.bind(lulin)()
+    jawil.sayHello.bind(lulin)(23, '男')//lulin
+</script>
+
+</html>

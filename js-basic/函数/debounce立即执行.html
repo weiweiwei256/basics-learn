@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>debounce</title>
+</head>
+
+<body>
+    debounce
+</body>
+<script>
+    // e.g. 防抖 - 非立即执行
+    function debounce(func, delay) {
+        var timeout;
+        return function () {
+            var context = this;
+            var args = arguments;
+            called = timeout !== undefined;
+            if (!called) {
+                func.apply(context, args);
+            }
+            timeout && clearTimeout(timeout)
+            timeout = setTimeout(function () {
+                timeout = undefined;
+            }, delay);
+
+        }
+    }
+
+    // 调用
+    var printUserName = debounce(function (a) {
+        console.log(a)
+        console.log(this)
+        console.log('1222');
+    }, 800);
+    printUserName();
+    printUserName('aaaa')
+</script>
+
+</html>

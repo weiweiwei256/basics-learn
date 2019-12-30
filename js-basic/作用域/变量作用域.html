@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>变量作用域</title>
+</head>
+
+<body>
+  <p>变量作用域测试</p>
+</body>
+<script>
+  // 0 测试函数内也有变量提升 
+  console.error('-------------------0----------------------')
+  function fun() {
+    console.log(c)
+    console.log(this.d)
+    console.log(window.d)
+    var c = 'test';
+    d = 'test2'
+  }
+  fun()
+  // 1.函数作用域: 
+  console.error('-------------------1----------------------')
+
+  function fun1() {
+    var s = 'an'  // 声明到函数作用域内
+    s2 = 'an2'   // 在函数中隐士的声明变量 到全局作用域内
+    console.log(s);
+    console.log('this作用域' + this.s2)
+  }
+  fun1();
+  console.log(s2);
+
+  // 2.在函数作用域中,不使用变量关键字声明的变量,在赋值时会往上一级作用域寻找已经声明的同名变量,直到全局作用域时还没找到,则会成为window的属性
+  console.error('-------------------2----------------------')
+  fun2(); // 输出结果 bn
+  function fun2() {
+    var b = 'bn';
+    function bn() {
+      console.log(b);
+      b = 'bn2';   // b会往上一级寻找已经声明的同名变量,并赋值,直到全局作用域时还没找到,则会成为window的属性
+    }
+    bn();
+    console.log(b); // 输出 bn2
+  }
+  console.error('-------------------对象内的变量作用域----------------------')
+  // 对象内变量作用域
+  var o = {
+    name: `o's name`,
+    fun() {
+      console.log(name)
+    }
+  }
+  o.fun();
+
+</script>
+
+</html>

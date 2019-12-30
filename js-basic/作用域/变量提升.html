@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>变量提升</title>
+</head>
+
+<body>
+  <p>变量提升</p>
+</body>
+<script>
+  // 1. 函数内的变量提升
+  console.error('-------------------1----------------------')
+  var c = 0;
+  function a() {
+    console.log(c);
+    var c = 11;
+  }
+  a();
+  // 不会执行的变量也会提升
+  console.error('-------------------2----------------------')
+  var d = 10;
+  function b() {
+    console.log(d);
+    if (false) {
+      var d = 10;
+    }
+  }
+  b();
+  console.error('-------------------3----------------------')
+  // 函数外的变量提升
+  console.log(v)
+  var v = 'variable'
+
+  console.error('-------------------4----------------------')
+  var cc = 10;
+  function aa() {
+    // console.log(cc);
+    let cc = 1;
+    console.log(cc);
+  }
+  aa();
+  console.log(cc)
+
+  console.error('-------------------方法调用引擎变量声明----------------------')
+  var var2 = 'wei'
+
+  function myFunc(var2) {
+    console.log(var2)
+  }
+  console.log(var2)
+  myFunc('yajun')
+  console.log(var2)
+</script>
+
+</html>
