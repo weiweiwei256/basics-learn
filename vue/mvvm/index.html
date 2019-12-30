@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <h1>{{song}}</h1>
+    <p>《{{album.name}}》是{{singer}}2005年11月发行的专辑</p>
+    <p>主打歌为{{album.theme}}</p>
+    <p>作词人为{{singer}}等人。</p>
+    为你弹奏肖邦的{{album.theme}}
+</div>
+<!--实现的mvvm-->
+<script src="./mvvm.js"></script>
+<script>
+    // 写法和Vue一样
+    let mvvm = new Mvvm({
+        el: '#app',
+        data: {     // Object.defineProperty(obj, 'song', '发如雪');
+            song: '发如雪',
+            album: {
+                name: '十一月的萧邦',
+                theme: '夜曲'
+            },
+            singer: '周杰伦'
+        }
+    });
+    console.log(mvvm)
+</script>
+</body>
+<!--作者：chenhongdong-->
+<!--链接：https://juejin.im/post/5abdd6f6f265da23793c4458-->
+<!--来源：掘金-->
+<!--著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。-->
+</html>

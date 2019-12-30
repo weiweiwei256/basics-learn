@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+    <script>
+        let obj = {};
+        let song = '发如雪';
+        obj.singer = '周杰伦';
+
+        Object.defineProperty(obj, 'music', {
+            // 1. value: '七里香',
+            configurable: true,     // 2. 可以配置对象，删除属性
+            // writable: true,         // 3. 可以修改对象
+            enumerable: true,        // 4. 可以枚举
+            // ☆ get,set设置时不能设置writable和value，它们代替了二者且是互斥的
+            get() {     // 5. 获取obj.music的时候就会调用get方法
+                return song;
+            },
+            set(val) {      // 6. 将修改的值重新赋给song
+                song = val;
+            }
+        });
+        console.log(obj);
+        song = 'test1'
+        console.log(obj);
+        obj.music = 'test2'
+        console.log(obj)
+        console.log(song)
+    </script>
+</body>
+
+</html>
