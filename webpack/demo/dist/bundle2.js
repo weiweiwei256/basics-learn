@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./main2.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./main3.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./main2.js":
+/***/ "./main3.js":
 /*!******************!*\
-  !*** ./main2.js ***!
+  !*** ./main3.js ***!
   \******************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("exports.webpack = function() {\n    document.write('<h2>Hello Webpack main2</h2>')\n}\n\n\n//# sourceURL=webpack:///./main2.js?");
+eval("exports.webpack = function() {\n    document.write('<h2>Hello Webpack main3</h2>')\n}\n\n\n//# sourceURL=webpack:///./main3.js?");
 
 /***/ })
 

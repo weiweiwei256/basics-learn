@@ -1,3 +1,3 @@
 exports.webpack = function() {
-    document.write('<h2>Hello Webpack</h2>')
+    document.write('<h2>Hello Webpack main2</h2>')
 }
