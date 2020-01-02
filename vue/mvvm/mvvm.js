@@ -23,6 +23,46 @@ function Mvvm(options = {}) {
     // 编译
     new Compile(options.el, this)
 }
+// 发布订阅模式  订阅和发布 如[fn1, fn2, fn3]
+function Dep() {
+    // 一个数组(存放函数的事件池)
+    this.subs = []
+}
+Dep.prototype = {
+    addSub(sub) {
+        this.subs.push(sub)
+    },
+    notify() {
+        // 绑定的方法，都有一个update方法
+        this.subs.forEach(sub => sub.update())
+    },
+}
+// 监听函数
+// 通过Watcher这个类创建的实例，都拥有update方法
+// 重写Watcher构造函数
+function Watcher(vm, exp, fn) {
+    this.fn = fn
+    this.vm = vm
+    this.exp = exp
+    // 添加一个事件
+    // 这里我们先定义一个属性
+    Dep.target = this
+    let arr = exp.split('.')
+    let val = vm
+    arr.forEach(key => {
+        // 取值
+        val = val[key] // 获取到this.a.b，默认就会调用get方法
+    })
+    Dep.target = null
+}
+Watcher.prototype.update = function() {
+    let arr = this.exp.split('.')
+    let val = this.vm
+    arr.forEach(key => {
+        val = val[key] // 通过get获取到新的值
+    })
+    this.fn(val) // 将每次拿到的新值去替换{{}}的内容即可
+}
 
 // 创建Compile构造函数  将html中的所有表达式换成实际的值
 function Compile(el, vm) {
@@ -53,6 +93,9 @@ function Compile(el, vm) {
                 console.log(val) // 替成成实际的值
                 // 用trim方法去除一下首尾空格
                 node.textContent = txt.replace(reg, val).trim()
+                new Watcher(vm, RegExp.$1, newVal => {
+                    node.textContent = txt.replace(reg, newVal).trim()
+                })
             }
             // 如果还有子节点，继续递归replace
             if (node.childNodes && node.childNodes.length) {
@@ -67,8 +110,9 @@ function Compile(el, vm) {
 
 // 创建一个Observe构造函数
 // 写数据劫持的主要逻辑
+// 所谓数据劫持就是给对象增加get,set
 function Observe(data) {
-    // 所谓数据劫持就是给对象增加get,set
+    let dep = new Dep()
     // 先遍历一遍对象再说
     for (let key in data) {
         // 把data属性通过defineProperty的方式定义属性
@@ -77,6 +121,7 @@ function Observe(data) {
         Object.defineProperty(data, key, {
             configurable: true,
             get() {
+                Dep.target && dep.addSub(Dep.target) // watcher 增加到dep
                 return val
             },
             set(newVal) {
@@ -87,6 +132,7 @@ function Observe(data) {
                 }
                 val = newVal // 如果以后再获取值(get)的时候，将刚才设置的值再返回去
                 observe(newVal) // 当设置为新值后，也需要把新值再去定义成属性
+                dep.notify() // 让所有watcher的update方法执行即可
             },
         })
     }

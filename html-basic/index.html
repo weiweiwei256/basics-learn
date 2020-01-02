@@ -8,6 +8,15 @@
   </style>
 </head>
 <body>
+  <img onload="handleLoad()" onerror="handleError()" src='https://profile.csdnimg.cn/1/0/B/3_kongjiea'>
   <h1>欢迎方法RUNNERUP的服务器</h1>
 </body>
+<script>
+  function handleLoad(){
+    console.log('load')
+  }
+  function handleError(){
+    console.log('error')
+  }
+</script>
 </html>
