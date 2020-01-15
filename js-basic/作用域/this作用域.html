@@ -52,6 +52,18 @@
         console.log(name)
         console.log(this.name)
         console.log(this)
+        setTimeout(function () {
+          console.log('normal in time out ')
+          console.log(this)
+        }, 16)
+        setTimeout(() => {
+          console.log('arrow in time out ')
+          console.log(this)
+        }, 16);
+        (function () {
+          console.log('在立即执行函数里')
+          console.log(this)
+        })()
       }
     }
   }
