@@ -39,10 +39,30 @@
       console.log(name)
       console.log(this.name)
       console.log(this)
+    },
+    returnFunc: function () {
+      return function () {
+        console.log(name)
+        console.log(this.name)
+        console.log(this)
+      }
+    },
+    returnArrow: function () {
+      return () => {
+        console.log(name)
+        console.log(this.name)
+        console.log(this)
+      }
     }
   }
+  console.error('-----------------普通函数------------------------')
   o2.func();
+  console.error('-------------------箭头函数----------------------')
   o2.arrFunc();
+  console.error('-------------------返回普通函数----------------------')
+  o2.returnFunc()();
+  console.error('-------------------返回箭头函数----------------------')
+  o2.returnArrow()();
   console.error('-------------------2.1----------------------')
   // 2.1 对象嵌套
   var o3 = {
@@ -57,8 +77,8 @@
     }
   }
   o3.child.func();
-  var o4 ={
-    name:`o4's name`
+  var o4 = {
+    name: `o4's name`
   }
   o4.fun = o3.child.func;
   o4.fun();
