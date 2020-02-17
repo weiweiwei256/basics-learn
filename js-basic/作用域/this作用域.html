@@ -13,7 +13,7 @@
 </body>
 <script>
   var name = "winow's name"
-  console.error('-------------------1----------------------')
+  console.error('-------------------函数调用模式----------------------')
   // 1.函数调用模式
   function a() {
     var name = 'hello'
@@ -22,11 +22,12 @@
     console.log(this)
   }
   a();
+  console.error('----------------改变fun所属---------------------------------------------');
   // 改变a 的位置
-  var o = { txt: "o's txt" }
+  var o = { name: "o's name" }
   o.fun = a;
   o.fun()
-  console.error('-------------------2----------------------')
+  console.error('-------------------方法调用模式---------------------')
   // 2. 方法调用模式
   var o2 = {
     name: 'o2 name',
@@ -39,9 +40,18 @@
       console.log(name)
       console.log(this.name)
       console.log(this)
+      setTimeout(function () {
+        console.log('normal timeout');
+        console.log(this);
+      }, 16)
+      setTimeout(() => {
+        console.log('arrow timeout');
+        console.log(this);
+      }, 16)
     }
   }
   o2.func();
+  console.error('-------------------箭头方法调用模式------------------------------------------');
   o2.arrFunc();
   console.error('-------------------2.1----------------------')
   // 2.1 对象嵌套
@@ -57,8 +67,8 @@
     }
   }
   o3.child.func();
-  var o4 ={
-    name:`o4's name`
+  var o4 = {
+    name: `o4's name`
   }
   o4.fun = o3.child.func;
   o4.fun();
