@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <title>这是另一个文件 b.txt</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<titl>demo<title>
+ kjk: 100px; }
+ </style> 
+dfasdfasdddddddddd
+dfsdfsdfduufsdfsd sdf   sdfa sd fas df asd f asd  asdfasdfsd  sadfasdfadsfadf d        
+dfsdfsdfduufsdfsd sdf   sdfa sd fas df asd f asd  asdfasdfsd  sadfasdfadsfadf d        
+dfsdfsdfduufsdfsd sdf   sdfa sd fas df asd f asd  dfsdfusdfasdfsd  sadfasdfadsfadf d        
+dfsdfsdfduufsdfsd sdf   sdfa sd fas df asd f asd  asdfasdfsd  sadfasdfadsfadf d        
+dfsdfsdfduufsdfsd sdf   sdfa sd fas df asd f asd  asdfasdfsd  sadfasdfadsfadf
+dfsdfsdfduufsdfsd sdf   sdfa sd fas df asd f asd  asdfasdfsd  sadfasdfadsfadf
+dfsdfsd sdf   sdfa sd fas df asd f asd  asdfasdfsd  sadfasdfadsfadf
+dfsdfsd sdf   sdfa sd fas df asd f asd  asdfasdfsd  sadfasdfadsfadf
+dfsdfsd sdf   sdfa sd fas df asd f asd  asdfasdfsd  sadfasdfadsfadf
+dfsdfsd sdf   sdfa sd fas df asd f asd  asdfasdfsd  sadfasdfadsfadf
+</head>
+ <body>
+ <div id="my_div"> <button>btn1</button> <button>btn2</button> </div> </body> </html>

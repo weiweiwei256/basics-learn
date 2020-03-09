@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <p>变量作用域测试</p>
+  <p>变量作用域</p>
 </body>
 <script>
   // 0 测试函数内也有变量提升 
@@ -29,13 +29,13 @@
     var s = 'an'  // 声明到函数作用域内
     s2 = 'an2'   // 在函数中隐士的声明变量 到全局作用域内
     console.log(s);
-    console.log('this作用域' + this.s2)
   }
   fun1();
   console.log(s2);
 
   // 2.在函数作用域中,不使用变量关键字声明的变量,在赋值时会往上一级作用域寻找已经声明的同名变量,直到全局作用域时还没找到,则会成为window的属性
   console.error('-------------------2----------------------')
+  var b = 'window b'
   fun2(); // 输出结果 bn
   function fun2() {
     var b = 'bn';
@@ -55,7 +55,16 @@
     }
   }
   o.fun();
-
+  console.error(`-------------------返回函数作用域----------------------`);
+  var d = 'window d'
+  fun4()(); // 输出结果 dn
+  function fun4() {
+    var d = 'dn';
+    return function () {
+      var d = 'dn2';   // d会往上一级寻找已经声明的同名变量,并赋值,直到全局作用域时还没找到,则会成为window的属性
+      console.log(d);
+    }
+  }
 </script>
 
 </html>
