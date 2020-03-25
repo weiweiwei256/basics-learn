@@ -12,22 +12,36 @@
   <p>闭包</p>
 </body>
 <script>
+  var num = 'window num'
   function func1() {
     var num = 1;
     function func2() {
-      console.log(this)
+      console.log(this);
+      console.log(this.num)
       return num;
     }
+    console.error(`-------------------fun2----------------------`);
+    func2();
+    console.error(`-------------------fun2 end ----------------------`);
     return func2;
   }
-  var num = func1()();
-  console.log(num);
+  console.error(`-------------------fun1----------------------`);
+  func1()();
+  console.error(`-------------------fun3----------------------`);
+  function fun3() {
+    var num = 'fun3'
+    func1()();
+  }
+  fun3();
   console.error('-------------------测试----------------------')
-  var name = "The Window";
+  var name = "The Window name";
   var object = {
-    name: 'My Object',
+    name: 'object name',
     getNameFunc: function () {
+      console.log(this.name)
+      console.log(name)
       return function () {
+        console.error(`-------------------内部函数执行----------------------`);
         console.log(this.name)
         console.log(name)
         return this.name;
