@@ -55,6 +55,8 @@ class Board extends React.Component {
     }
 
     handleClick(i) {
+        console.log(this)
+        this.normalFun()
         const squares = this.state.squares.slice()
         if (calculateWinner(squares) || squares[i]) {
             return
@@ -62,8 +64,12 @@ class Board extends React.Component {
         squares[i] = this.state.xIsNext ? 'X' : 'O'
         this.setState({ squares, xIsNext: !this.state.xIsNext })
     }
-
+    normalFun() {
+        console.error(`-------------------normal-fun----------------------`)
+    }
     render() {
+        console.log(this)
+        this.normalFun()
         const winner = calculateWinner(this.state.squares)
         let status
         if (winner) {
