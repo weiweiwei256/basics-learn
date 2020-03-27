@@ -10,11 +10,14 @@ class LikeButton extends React.Component {
 
     render() {
         if (this.state.liked) {
-            return 'You liked this.'
+            return 'You liked commentid is' + this.props.commentID
         }
 
         return e('button', { onClick: () => this.setState({ liked: true }) }, 'Like')
     }
 }
-const domContainer = document.querySelector('#invoke-react-btn')
-ReactDOM.render(e(LikeButton), domContainer)
+document.querySelectorAll('.invoke-react-btn').forEach(domContainer => {
+    console.log(domContainer.dataset)
+    const commentID = parseInt(domContainer.dataset.commentid)
+    ReactDOM.render(e(LikeButton, { commentID }), domContainer)
+})
