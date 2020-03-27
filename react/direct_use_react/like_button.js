@@ -13,11 +13,15 @@ class LikeButton extends React.Component {
             return 'You liked commentid is' + this.props.commentID
         }
 
-        return e('button', { onClick: () => this.setState({ liked: true }) }, 'Like')
+        // return e('button', { onClick: () => this.setState({ liked: true }) }, 'L12313ike')
+        return (
+            <button onClick={() => this.setState({ liked: true })}>
+              111
+            </button>
+          );
     }
 }
 document.querySelectorAll('.invoke-react-btn').forEach(domContainer => {
-    console.log(domContainer.dataset)
     const commentID = parseInt(domContainer.dataset.commentid)
     ReactDOM.render(e(LikeButton, { commentID }), domContainer)
 })
