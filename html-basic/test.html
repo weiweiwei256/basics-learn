@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+
+<body>
+    <p>这是一个测试的html文件</p>
+    <button onclick="speak()">speak</button>
+</body>
+<script>
+    function speak() {
+        let synth = window.SpeechSynthesis;
+        console.log(synth);
+        let voices = synth.getVoices().filter(voice => voice.lang.startsWith(document.querySelector('html').lang));
+        if (voices.length == 0) return;
+        let utterThis = new SpeechSynthesisUtterance(document.querySelector('.content').textContent);
+        utterThis.voice = voices[0];
+        synth.speak(utterThis);
+    }
+</script>
+
+</html>

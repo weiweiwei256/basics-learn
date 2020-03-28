@@ -1,0 +1,13 @@
+{
+  "name": "direct_use_react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "like_button.js",
+  "scripts": {
+    "comment": "使用babel编译jsx",
+    "babel": "npx babel --watch src --out-dir . --presets react-app/prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
