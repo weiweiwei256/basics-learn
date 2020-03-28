@@ -1,12 +1,17 @@
 import React from 'react'
+import './Welcome.css'
 class Welcome extends React.Component {
-    constructor(props){
+    // 设置默认props
+    static defaultProps ={
+        name:'default name'
+    }
+    constructor(props) {
         super(props)
     }
     render() {
         return (
-            <div id="wellcom-id">
-                <h1>Welcome Component</h1>
+            <div id="wellcom-id" className='welcome-style'>
+                <h6>Welcome Component</h6>
                 <h1>{this.props.name}</h1>
             </div>
         )

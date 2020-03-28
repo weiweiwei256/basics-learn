@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.css'
 // import './components/Hello.js'
-// import MyContainter from './components/MyContainer'
-import './components/Welcome'
+import MyContainter from './components/MyContainer'
 import Welcome from './components/Welcome'
+import Clock from './components/Clock/Clock'
 function App() {
     function formatUser(user) {
         return user.firstName + ' ' + user.lastName
@@ -12,6 +12,7 @@ function App() {
         firstName: 'wei',
         lastName: 'yajun',
     }
+    // 
     const Hello = props => {
         const jsxObj = (
             <div
@@ -28,7 +29,7 @@ function App() {
                 }}
             >
                 <h1>hello world,by {formatUser(user)}</h1>
-                <Welcome name={formatUser(user)}/>
+                
             </div>
         )
         console.log(jsxObj)
@@ -40,11 +41,20 @@ function App() {
     }
     return (
         <div className="App">
+                <h3>state属性</h3>
+                <Clock />
+                <h3>函数组件调用</h3>
             <Hello
                 onClick={() => {
                     handleClick(this)
                 }}
             ></Hello>
+                <h3>普通class组件调用</h3>
+                <Welcome name={formatUser(user)}/>
+                <h3>class组件默认值测试</h3>
+                <Welcome />
+                <h3>容器测试</h3>
+                <MyContainter />
         </div>
     )
 }
