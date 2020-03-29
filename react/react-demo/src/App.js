@@ -11,6 +11,8 @@ import InputForm from './components/Form/InputForm'
 import SelectForm from './components/Form/SelectForm'
 import MultiInputForm from './components/Form/MultiInputForm'
 import Calculator from './components/StatePromote/Calculator'
+import FancyBorder from './components/Composition&Inheritance/FancyBorder'
+import TitleBorder from './components/Composition&Inheritance/TitleBorder'
 function App() {
     function formatUser(user) {
         return user.firstName + ' ' + user.lastName
@@ -49,6 +51,23 @@ function App() {
         <div className="App">
             <h3>测试</h3>
             <Test />
+            <h3>组合&继承</h3>
+            <TitleBorder
+                title={'title1'}
+                color={'blue'}
+                left={<SelectForm />}
+                right={<InputForm />}
+            >
+                <p>This is a prograph</p>
+            </TitleBorder>
+            <FancyBorder
+                title={'title1'}
+                color={'blue'}
+                left={<SelectForm />}
+                right={<InputForm />}
+            >
+                <p>This is a prograph</p>
+            </FancyBorder>
             <h3>状态提升</h3>
             <Calculator />
             <h3>multi input form</h3>
