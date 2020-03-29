@@ -10,6 +10,7 @@ import Form from './components/Form/Form'
 import InputForm from './components/Form/InputForm'
 import SelectForm from './components/Form/SelectForm'
 import MultiInputForm from './components/Form/MultiInputForm'
+import Calculator from './components/StatePromote/Calculator'
 function App() {
     function formatUser(user) {
         return user.firstName + ' ' + user.lastName
@@ -18,7 +19,7 @@ function App() {
         firstName: 'wei',
         lastName: 'yajun',
     }
-    // 
+    //
     const Hello = props => {
         const jsxObj = (
             <div
@@ -35,7 +36,6 @@ function App() {
                 }}
             >
                 <h1>hello world,by {formatUser(user)}</h1>
-                
             </div>
         )
         console.log(jsxObj)
@@ -47,34 +47,36 @@ function App() {
     }
     return (
         <div className="App">
-                <h3>测试</h3>
-                <Test />
-                <h3>multi input form</h3>
-                <MultiInputForm />
-                <h3>select form</h3>
-                <SelectForm />
-                <h3>input form</h3>
-                <InputForm />
-                <h3>form</h3>
-                <Form />
-                <h3>list 渲染</h3>
-                <List />
-                <h3>事件属性</h3>
-                <Toggle />
-                <h3>state属性</h3>
-                <Clock />
-                <h3>函数组件调用</h3>
+            <h3>测试</h3>
+            <Test />
+            <h3>状态提升</h3>
+            <Calculator />
+            <h3>multi input form</h3>
+            <MultiInputForm />
+            <h3>select form</h3>
+            <SelectForm />
+            <h3>input form</h3>
+            <InputForm />
+            <h3>form</h3>
+            <Form />
+            <h3>list 渲染</h3>
+            <List />
+            <h3>事件属性</h3>
+            <Toggle />
+            <h3>state属性</h3>
+            <Clock />
+            <h3>函数组件调用</h3>
             <Hello
                 onClick={() => {
                     handleClick(this)
                 }}
             ></Hello>
-                <h3>普通class组件调用</h3>
-                <Welcome name={formatUser(user)}/>
-                <h3>class组件默认值测试</h3>
-                <Welcome />
-                <h3>容器测试</h3>
-                <MyContainter />
+            <h3>普通class组件调用</h3>
+            <Welcome name={formatUser(user)} />
+            <h3>class组件默认值测试</h3>
+            <Welcome />
+            <h3>容器测试</h3>
+            <MyContainter />
         </div>
     )
 }
