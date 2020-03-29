@@ -1,0 +1,18 @@
+.FancyBorder {
+    background-color: darkgray;
+}
+.FancyBorder-blue {
+    border: 2px solid blue;
+}
+.container {
+    height: 300px;
+    display: flex;
+}
+.left-part {
+    background-color: yellow;
+    flex-grow: 1;
+}
+.right-part {
+    background-color: green;
+    flex-grow: 1;
+}
