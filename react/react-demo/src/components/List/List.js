@@ -5,7 +5,6 @@ class List extends React.Component {
         const listItems = numbers.map((number, index) => (
             <p key={index}>{'This is a list render:' + number}</p>
         ))
-        console.log(listItems)
         return (
             <div>
                 <div>{listItems}</div>

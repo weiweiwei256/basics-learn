@@ -13,6 +13,7 @@ import MultiInputForm from './components/Form/MultiInputForm'
 import Calculator from './components/StatePromote/Calculator'
 import FancyBorder from './components/Composition&Inheritance/FancyBorder'
 import TitleBorder from './components/Composition&Inheritance/TitleBorder'
+import HookTest from './components/hooks/HookTest'
 function App() {
     function formatUser(user) {
         return user.firstName + ' ' + user.lastName
@@ -51,6 +52,8 @@ function App() {
         <div className="App">
             <h3>测试</h3>
             <Test />
+            <h3>hooks</h3>
+            <HookTest />
             <h3>组合&继承</h3>
             <TitleBorder
                 title={'title1'}
