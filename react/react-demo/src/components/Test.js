@@ -1,15 +1,20 @@
-
 import React from 'react'
-
-function Test() {
-    function setTheme(theme) {
-        console.log(`set theme${theme}`)
+class Test extends React.Component {
+    componentDidMount() {
+        console.log(this)
     }
-    return (
-        <div>
-            <button onClick={() => setTheme('dark')}>set theme</button>
-        </div>
-    )
+    render() {
+        const numbers = [1, 2, 3, 4, 5]
+        const listItems = numbers.map((number, index) => (
+            <p key={index}>{'This is a list render:' + number}</p>
+        ))
+        console.log(listItems)
+        return (
+            <div>
+                <div>{listItems}</div>
+                <h1>this is a Test</h1>
+            </div>
+        )
+    }
 }
 export default Test
-
