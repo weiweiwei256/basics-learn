@@ -3,9 +3,13 @@ import './App.css'
 import Test from './components/Test'
 import MyContainter from './components/MyContainer'
 import Welcome from './components/Welcome'
+import List from './components/List/List'
 import Clock from './components/Clock/Clock'
-import Form from './components/Form/Form'
 import Toggle from './components/Toggle/Toggle'
+import Form from './components/Form/Form'
+import InputForm from './components/Form/InputForm'
+import SelectForm from './components/Form/SelectForm'
+import MultiInputForm from './components/Form/MultiInputForm'
 function App() {
     function formatUser(user) {
         return user.firstName + ' ' + user.lastName
@@ -45,8 +49,16 @@ function App() {
         <div className="App">
                 <h3>测试</h3>
                 <Test />
+                <h3>multi input form</h3>
+                <MultiInputForm />
+                <h3>select form</h3>
+                <SelectForm />
+                <h3>input form</h3>
+                <InputForm />
                 <h3>form</h3>
                 <Form />
+                <h3>list 渲染</h3>
+                <List />
                 <h3>事件属性</h3>
                 <Toggle />
                 <h3>state属性</h3>
