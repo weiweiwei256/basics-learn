@@ -1,12 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import './Welcome.css'
 class Welcome extends React.Component {
     // 设置默认props
     static defaultProps ={
         name:'default name'
-    }
-    constructor(props) {
-        super(props)
     }
     render() {
         return (
@@ -18,3 +16,6 @@ class Welcome extends React.Component {
     }
 }
 export default Welcome
+Welcome.propTypes = {
+    name: PropTypes.string
+  };

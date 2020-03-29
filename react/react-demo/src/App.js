@@ -1,9 +1,11 @@
 import React from 'react'
 import './App.css'
-// import './components/Hello.js'
+import Test from './components/Test'
 import MyContainter from './components/MyContainer'
 import Welcome from './components/Welcome'
 import Clock from './components/Clock/Clock'
+import Form from './components/Form/Form'
+import Toggle from './components/Toggle/Toggle'
 function App() {
     function formatUser(user) {
         return user.firstName + ' ' + user.lastName
@@ -41,6 +43,12 @@ function App() {
     }
     return (
         <div className="App">
+                <h3>测试</h3>
+                <Test />
+                <h3>form</h3>
+                <Form />
+                <h3>事件属性</h3>
+                <Toggle />
                 <h3>state属性</h3>
                 <Clock />
                 <h3>函数组件调用</h3>
