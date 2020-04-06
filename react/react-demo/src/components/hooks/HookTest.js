@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 function HookTest() {
     // 声明一个新的叫做 “count” 的 state 变量
-    debugger
     const [count, setCount] = useState(0)
     return (
         <div>
