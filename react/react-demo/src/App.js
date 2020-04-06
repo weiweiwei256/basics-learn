@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import {ThemeContext} from './ThemeContext.js'
 import Test from './components/Test'
 import MyContainter from './components/MyContainer'
 import Welcome from './components/Welcome'
@@ -14,6 +15,7 @@ import Calculator from './components/StatePromote/Calculator'
 import FancyBorder from './components/Composition&Inheritance/FancyBorder'
 import TitleBorder from './components/Composition&Inheritance/TitleBorder'
 import HookTest from './components/hooks/HookTest'
+import Toolbar from './components/Context/Toolbar'
 function App() {
     function formatUser(user) {
         return user.firstName + ' ' + user.lastName
@@ -52,6 +54,11 @@ function App() {
         <div className="App">
             <h3>测试</h3>
             <Test />
+            <h3>Context</h3>
+            <ThemeContext.Provider value='dark'>
+
+            <Toolbar />
+            </ThemeContext.Provider>
             <h3>hooks</h3>
             <HookTest />
             <h3>组合&继承</h3>
