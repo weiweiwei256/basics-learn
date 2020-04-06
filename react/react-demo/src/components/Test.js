@@ -1,11 +1,15 @@
+
 import React from 'react'
-class Test extends React.Component {
-    render() {
-        return (
-            <div>
-                <h4>this is a Test</h4>
-            </div>
-        )
+
+function Test() {
+    function setTheme(theme) {
+        console.log(`set theme${theme}`)
     }
+    return (
+        <div>
+            <button onClick={() => setTheme('dark')}>set theme</button>
+        </div>
+    )
 }
 export default Test
+
