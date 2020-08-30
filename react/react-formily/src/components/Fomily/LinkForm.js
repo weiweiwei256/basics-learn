@@ -25,7 +25,6 @@ const LinkForm = () => {
         labelCol={5}
         wrapperCol={14}
         effects={(effects) => {
-          console.log("effects.setFieldState", effects);
           merge(onFieldValueChange$("aa"), onFieldInit$("aa")).subscribe(
             (fieldState) => {
               effects.setFieldState("bb", (state) => {

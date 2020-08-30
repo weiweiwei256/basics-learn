@@ -18,7 +18,6 @@ const LifeCycleForm = () => {
       labelCol={5}
       wrapperCol={14}
       effects={($, actions) => {
-        console.log("actions", actions);
         const { setFieldState } = actions;
         $(LifeCycleTypes.ON_FORM_INIT).subscribe(() => {
           setFieldState("aa", (state) => {
