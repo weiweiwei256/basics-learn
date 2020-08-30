@@ -52,7 +52,9 @@ const columns = [
 const QueryForm = () => {
   const { form, table } = useFormTableQuery(service)
   console.dir('form',form)
+  console.dir(form);
   console.dir('table',table)
+  console.dir(table);
   return (
     <div>
       <p>This is query form</p>
