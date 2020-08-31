@@ -24,7 +24,10 @@ function App() {
         firstName: 'wei',
         lastName: 'yajun',
     }
+<<<<<<< HEAD
     //
+=======
+>>>>>>> feat: 引入welcome组件
     const Hello = props => {
         const jsxObj = (
             <div
@@ -41,6 +44,10 @@ function App() {
                 }}
             >
                 <h1>hello world,by {formatUser(user)}</h1>
+<<<<<<< HEAD
+=======
+                <Welcome name={formatUser(user)}/>
+>>>>>>> feat: 引入welcome组件
             </div>
         )
         console.log(jsxObj)
@@ -52,6 +59,7 @@ function App() {
     }
     return (
         <div className="App">
+<<<<<<< HEAD
             <h3>测试</h3>
             <Test />
             <h3>Context</h3>
@@ -95,17 +103,22 @@ function App() {
             <h3>state属性</h3>
             <Clock />
             <h3>函数组件调用</h3>
+=======
+>>>>>>> feat: 引入welcome组件
             <Hello
                 onClick={() => {
                     handleClick(this)
                 }}
             ></Hello>
+<<<<<<< HEAD
             <h3>普通class组件调用</h3>
             <Welcome name={formatUser(user)} />
             <h3>class组件默认值测试</h3>
             <Welcome />
             <h3>容器测试</h3>
             <MyContainter />
+=======
+>>>>>>> feat: 引入welcome组件
         </div>
     )
 }
