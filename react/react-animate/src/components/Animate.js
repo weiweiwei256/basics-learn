@@ -14,8 +14,8 @@ const Component = () => {
       {/* <Test /> */}
       {/* <Ball /> */}
       {/* <Star /> */}
-      <TweenOneDemo />
-      {/* <TweenOneTimeLine /> */}
+      {/* <TweenOneDemo /> */}
+      <TweenOneTimeLine />
       {/* <TweenOneStar /> */}
     </Fragment>
   );

@@ -1,0 +1,120 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes myfirst {
+  0% {
+    background: red;
+  }
+  25% {
+    background: yellow;
+  }
+  50% {
+    background: blue;
+  }
+  100% {
+    background: green;
+  }
+}
+.ball {
+  width: 100px;
+  height: 100px;
+  background: paleturquoise;
+  border-radius: 100%;
+  position: absolute;
+}
+.ball1 {
+  left: 100px;
+  top: 100px;
+  animation: jump 3s linear, move 3s 3s linear;
+}
+.ball1Style {
+  left: 300px;
+  top: 300px;
+  animation: jump 3s linear, move 3s 3s linear;
+}
+.ball2 {
+  width: 100px;
+  height: 100px;
+  left: 200px;
+  background: black;
+  border-radius: 100%;
+  position: absolute;
+}
+
+.jump {
+  animation: jump 5s steps(5);
+  animation-fill-mode: forwards;
+}
+.move {
+  animation: move 3s linear;
+  animation-fill-mode: forwards;
+}
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(30px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* @keyframes move {
+  0% {
+    margin-left: 30px;
+  }
+  25% {
+    margin-left: 60px;
+  }
+  50% {
+    margin-left: 90px;
+  }
+  75% {
+    margin-left: 120px;
+  }
+  100% {
+    margin-left: 150px;
+  }
+} */
+@keyframes move {
+  100% {
+    transform: translate(200px, 0px);
+  }
+}

@@ -46,8 +46,8 @@ class TweenOneStar extends React.Component {
           repeat={-1}
           className="code-box-shape"
           style={{
-            position: 'absolute',
-            transformOrigin: 'center bottom',
+            // position: 'absolute',
+            // transformOrigin: 'center bottom',
           }}
         />
       </div>
