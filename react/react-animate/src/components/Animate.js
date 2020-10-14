@@ -6,6 +6,9 @@ import Star from './Star.js';
 import TweenOneDemo from './TweenOneDemo.js';
 import TweenOneTimeLine from './TweenOneTimeLine.js';
 import TweenOneStar from './TweenOneStar.js';
+import TweenOneText from './TweenOneText.js';
+// import TweenOneSVGLine from './TweenOneSVGLine.js';
+import CircleProcess from './CircleProcess';
 
 const Component = () => {
   return (
@@ -17,6 +20,9 @@ const Component = () => {
       {/* <TweenOneDemo /> */}
       <TweenOneTimeLine />
       {/* <TweenOneStar /> */}
+      {/* <TweenOneText /> */}
+      {/* <TweenOneSVGLine /> */}
+      {/* <CircleProcess /> */}
     </Fragment>
   );
 };

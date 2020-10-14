@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+ 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>基于jQuery的公告无限循环滚动实现代码</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            li {
+                list-style: none;
+            }
+            
+            body {
+                line-height: 1.5;
+                font-size: 14px;
+            }
+            
+            .scroll {
+                display: inline-block;
+                overflow: hidden;
+                position: relative;
+                height: 24px;
+            }
+            
+            .scroll ul {
+                transform: translateY(0);
+            }
+            
+            .animate {
+                -webkit-transition: all .5s ease-out;
+            }
+            
+            .scroll li {
+                overflow: hidden;
+                display: -webkit-box;
+                margin-left: 10px;
+                width: 90%;
+                height: 50px;
+                line-height: 30px;
+                color: #333;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                white-space: normal;
+            }
+            
+            .scroll li{
+                width: 100px;
+                height: 24px;
+                
+            }
+        </style>
+ 
+    </head>
+ 
+    <body>
+        <div class="scroll">
+            <ul>
+                <li><span>前端妹子是我吗</span></li>
+                <li>对呀，我就是前端妹子啊</li>
+                <li>哈哈哈你是谁呀</li>
+                <li>你猜猜我是哪个</li>
+            </ul>
+        </div>
+    </body>
+    <script src="https://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
+    
+    <script>
+        $(function() {
+            var scrollDiv = $(".scroll"),
+                $ul = scrollDiv.find("ul"),
+                $li = scrollDiv.find("li"),
+                $length = $li.length,
+                $liHeight = $li.height(),
+                num = 0;
+ 
+            if(scrollDiv.length == 0) {
+                return;
+            }
+ 
+            if($length > 1) {
+                $ul.append($li.eq(0).clone());
+                setInterval(
+                    function() {
+                        num++;
+                        $ul.addClass("animate").css("-webkit-transform", "translateY(-" + $liHeight * (num) + "px)");
+                        setTimeout(
+                            function() {
+                                if(num == $length) {
+                                    $ul.removeClass("animate").css("-webkit-transform", "translateY(0)");
+                                    num = 0;
+                                }
+                            }, 300);
+                    }, 6000);
+            }
+        });
+    </script>
+ 
+</html>

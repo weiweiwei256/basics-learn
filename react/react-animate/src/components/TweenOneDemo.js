@@ -54,7 +54,7 @@ class TweenOneDemo extends React.Component {
           position: 'relative',
         }}
       >
-        {/* <TweenOne
+        <TweenOne
           animation={this.animation}
           style={{
             margin: 0,
@@ -67,18 +67,16 @@ class TweenOneDemo extends React.Component {
           onChange={(...args) => {
             // 有所有事件的更新和moment
             //   console.log('args', args);
-            //   console.info('-----------change-----------');
+              console.info('-----------change-----------');
+          }}
+          onComplete={(...args) => {
+            // 有所有事件的更新和moment
+            //   console.log('args', args);
+              console.info('-----------change-----------');
           }}
           resetStyle={true}
-        /> */}
-        <svg width="1960" height="1080" x="0">
-          <path d={this.ellipse} fill="none" stroke="rgba(1, 1, 2, 1)" />
-          <path d={this.path} fill="none" stroke="rgba(1, 1, 2, 1)" />
-          <path d={this.path2} fill="none" stroke="rgba(1, 1, 2, 1)" />
-          <path d={this.path3} fill="none" stroke="rgba(1, 1, 2, 1)" />
-          <path d={this.path4} fill="none" stroke="rgba(1, 1, 2, 1)" />
-          <path d={this.path5} fill="none" stroke="rgba(1, 1, 2, 1)" />
-        </svg>
+        />
+  
       </div>
     );
   }
