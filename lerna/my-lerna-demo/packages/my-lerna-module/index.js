@@ -1,1 +1,1 @@
-console.log('This is my lerna module');
+console.log('This is my lerna module2');
