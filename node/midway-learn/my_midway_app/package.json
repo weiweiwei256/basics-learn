@@ -1,0 +1,67 @@
+{
+  "name": "my_first_midway_project",
+  "version": "1.0.0",
+  "description": "{{description}}",
+  "private": true,
+  "dependencies": {
+    "@ali/midway": "^6.5.7"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^10.5.5",
+    "cross-env": "^6.0.0",
+    "tslib": "^1.8.1",
+    "tslint-midway-contrib": "1",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.11.0",
+    "typescript": "^3.5.0",
+    "@ali/ci": "^4.7.0",
+    "@ali/midway-bin": "6",
+    "@ali/midway-mock": "6"
+  },
+  "engines": {
+    "install-alinode": "^4"
+  },
+  "scripts": {
+    "start": "NODE_ENV=local midway-bin dev --ts",
+    "stop": "",
+    "start_build": "npm run build && NODE_ENV=local midway-bin dev",
+    "clean": "midway-bin clean",
+    "dev": "NODE_ENV=local midway-bin dev --ts",
+    "debug": "NODE_ENV=local midway-bin debug --ts",
+    "test": "npm run lint & midway-bin test --ts",
+    "cov": "midway-bin cov --ts",
+    "lint": "tslint -c tslint.json --project .",
+    "ci": "npm run cov",
+    "build": "midway-bin build -c",
+    "autod": "midway-bin autod",
+    "lint-fix": "npm run lint -- --fix"
+  },
+  "ci": {
+    "version": "10, 12"
+  },
+  "midway-bin-clean": [
+    ".vscode/.tsbuildinfo",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "runnerup",
+  "license": "MIT",
+  "config": {
+    "build": {
+      "deps": "isolation"
+    },
+    "docker": {
+      "os": 7
+    }
+  },
+  "midway-bin-build": {
+    "include": [
+      "app/public",
+      "app/view"
+    ]
+  }
+}
