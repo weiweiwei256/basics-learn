@@ -1,6 +1,6 @@
 {
   "name": "my-lerna-index",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "cross-env": "^7.0.2",
-    "my-lerna-module": "^0.0.1-alpha.0"
+    "my-lerna-module": "^0.0.1"
   }
 }
