@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cross-env": "^7.0.2"
+    "cross-env": "^7.0.2",
+    "lodash.omit": "^4.5.0"
   }
 }
