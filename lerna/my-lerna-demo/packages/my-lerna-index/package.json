@@ -1,6 +1,6 @@
 {
   "name": "my-lerna-index",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,6 @@
   "dependencies": {
     "cross-env": "^7.0.2",
     "lodash.omit": "^4.5.0",
-    "my-lerna-module": "^0.0.1"
+    "my-lerna-module": "^0.1.1"
   }
 }
