@@ -54,10 +54,7 @@ function App() {
             <h3>测试</h3>
             <Test />
             <h3>Context</h3>
-            <ThemeContext.Provider value='dark'>
-
             <Toolbar />
-            </ThemeContext.Provider>
             <h3>hooks</h3>
             <HookTest />
             <h3>组合&继承</h3>
