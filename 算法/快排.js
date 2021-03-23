@@ -17,7 +17,7 @@ function quickSort(data) {
                 // 交换
                 console.log('data[i]', data[i])
                 console.log('data[j]', data[j])
-                ;[data[i], data[j]] = [data[j], data[i]]
+                [data[i], data[j]] = [data[j], data[i]]
                 console.log(data)
             }
         }
