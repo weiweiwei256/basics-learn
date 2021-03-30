@@ -13,61 +13,71 @@ import DomToImg from '@/domToImg/DomToImg.vue'
 import CropperDemo from '@/cropper/CropperDemo.vue'
 import TrackDemo from '@/track/TrackDemo.vue'
 import VantDemo from '@/test-vant/VantDemo.vue'
+import Tree from '@/tree/Tree.vue'
+import CommonRoot from '@/common/CommonRoot.vue'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/VantDemo',
-      component: VantDemo
+      component: VantDemo,
     },
     {
       path: '/Demo',
-      component: Demo
+      component: Demo,
     },
     {
       path: '/TrackDemo',
-      component: TrackDemo
+      component: TrackDemo,
     },
     {
       path: '/cropperdemo',
-      component: CropperDemo
+      component: CropperDemo,
     },
     {
       path: '/DomToImg',
-      component: DomToImg
+      component: DomToImg,
     },
     {
       path: '/BetterScrollDemo',
-      component: BetterScrollDemo
+      component: BetterScrollDemo,
     },
     {
       path: '/AwesomeSwiper',
-      component: AwesomeSwiper
+      component: AwesomeSwiper,
     },
     {
       path: '/Matter',
-      component: Matter
+      component: Matter,
     },
     {
       path: '/FlowEditor',
-      component: FlowEditor
+      component: FlowEditor,
     },
     {
       path: '/XMLFlow',
-      component: XMLFlow
+      component: XMLFlow,
     },
     {
       path: '/jsonflow',
-      component: JsonFlow
+      component: JsonFlow,
     },
     {
       path: '/UploadDownload',
-      component: UploadDownload
+      component: UploadDownload,
     },
     {
       path: '/Echarts',
-      component: Echarts
-    }
-  ]
+      component: Echarts,
+    },
+    {
+      path: '/Tree',
+      component: Tree,
+    },
+    {
+      path: '/common',
+      component: CommonRoot,
+    },
+  ],
 })
