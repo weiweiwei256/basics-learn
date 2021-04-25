@@ -15,6 +15,7 @@ import TrackDemo from '@/track/TrackDemo.vue'
 import VantDemo from '@/test-vant/VantDemo.vue'
 import Tree from '@/tree/Tree.vue'
 import CommonRoot from '@/common/CommonRoot.vue'
+import CanvasDemo from '@/canvas/CanvasDemo.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -78,6 +79,10 @@ export default new Router({
     {
       path: '/common',
       component: CommonRoot,
+    },
+    {
+      path: '/canvas',
+      component: CanvasDemo,
     },
   ],
 })
