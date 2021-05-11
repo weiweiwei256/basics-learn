@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello OpenCV.js</title>
+  </head>
+  <body>
+    <h2>Hello OpenCV.js</h2>
+    <p id="status">OpenCV.js is loading...</p>
+    <div>
+      <div class="inputoutput">
+        <video
+          id="video"
+          width="500"
+          height="500"
+          controls
+          width="250"
+        >
+          <source
+            id="videoSrc"
+            type="video/mp4"
+            src="./src/test.mp4"
+          />
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+        <button onclick="test()">test</button>
+      </div>
+      <div class="inputoutput">
+        <canvas
+          id="canvasOutput"
+        ></canvas>
+        <div class="caption">canvasOutput</div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      function test() {
+        console.log('cv', cv);
+        let video = document.getElementById('video');
+        let cap = new cv.VideoCapture('video');
+        var src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
+        cap.read(src);
+        cv.imshow('canvasOutput', src);
+      }
+      let imgElement = document.getElementById('videoSrc');
+      imgElement.onload = function () {
+        console.log('cv', cv);
+        let mat = cv.imread(imgElement);
+        cv.imshow('canvasOutput', mat);
+        mat.delete();
+      };
+      function onOpenCvReady() {
+        document.getElementById('status').innerHTML = 'OpenCV.js is ready.';
+      }
+    </script>
+    <script
+      async
+      src="./src/opencv.js"
+      onload="onOpenCvReady();"
+      type="text/javascript"
+    ></script>
+  </body>
+</html>

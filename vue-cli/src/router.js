@@ -2,9 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Demo from '@/demo/Demo.vue'
 import Matter from '@/matter/Matter.vue'
-import FlowEditor from '@/floweditor/FlowEditor.vue'
-import XMLFlow from '@/xml-flow/XMLFlow.vue'
-import JsonFlow from '@/json-flow/JsonFlow.vue'
 import UploadDownload from '@/upload-download/UploadDownload.vue'
 import Echarts from '@/Echarts/Echarts.vue'
 import AwesomeSwiper from '@/swiper/vue-awesome-swiper/AwesomeSwiper.vue'
@@ -12,7 +9,6 @@ import BetterScrollDemo from '@/swiper/better-scroll/BetterScrollDemo.vue'
 import DomToImg from '@/domToImg/DomToImg.vue'
 import CropperDemo from '@/cropper/CropperDemo.vue'
 import TrackDemo from '@/track/TrackDemo.vue'
-import VantDemo from '@/test-vant/VantDemo.vue'
 import Tree from '@/tree/Tree.vue'
 import CommonRoot from '@/common/CommonRoot.vue'
 import CanvasDemo from '@/canvas/CanvasDemo.vue'
@@ -22,7 +18,7 @@ export default new Router({
   routes: [
     {
       path: '/VantDemo',
-      component: VantDemo,
+      component: () => import('@/test-vant/VantDemo.vue'),
     },
     {
       path: '/Demo',
@@ -54,15 +50,15 @@ export default new Router({
     },
     {
       path: '/FlowEditor',
-      component: FlowEditor,
+      component: () => import('@/floweditor/FlowEditor'),
     },
     {
       path: '/XMLFlow',
-      component: XMLFlow,
+      component: () => import('@/xml-flow/XMLFlow.vue'),
     },
     {
       path: '/jsonflow',
-      component: JsonFlow,
+      component: () => import('@/json-flow/JsonFlow.vue'),
     },
     {
       path: '/UploadDownload',
@@ -83,6 +79,10 @@ export default new Router({
     {
       path: '/canvas',
       component: CanvasDemo,
+    },
+    {
+      path: '/scroll',
+      component: () => import('@/scroll/scroll-demo'),
     },
   ],
 })
