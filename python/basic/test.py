@@ -1,18 +1,12 @@
 import sys
 import os
 
-print(sys.argv[1])
-print(sys)
-print(os)
-if True:
-    a = 3
-    print(a)
+sys.path.append("/usr/local/lib/python3.9/site-packages")
+# sys.path.append("/usr/local/lib/python3.9/site-packages/cv2")
+# sys.path.append("/usr/local/lib/python3.9/site-packages/cv2/cv2.cpython-39-darwin.so")
+print(sys.path)
+# print(os.environ)
+import cv2
 
-print(a)
-
-
-def add(a, b):
-    return a + b
-
-
-print(add.__name__)
+print("----------13----------")
+# print(cv2.__file__)

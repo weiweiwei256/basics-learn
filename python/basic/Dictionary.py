@@ -10,3 +10,5 @@ print(dict[2])  # 输出键为 2 的值
 print(tinydict)  # 输出完整的字典
 print(tinydict.keys())  # 输出所有键
 print(tinydict.values())  # 输出所有值
+ for key in argDict:
+                    print(key + ":" + a[key])

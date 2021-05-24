@@ -1,7 +1,9 @@
 import cv2  # 导入opencv库
 
 # 读取一张图片，地址不能带中文ssd
-imgviewx = cv2.imread("images/plant.jpg")sd
+imgviewx = cv2.imread("images/plant.jpg")
+
+
 
 print(imgviewx)
 # 创建一个窗口，中文显示会出乱码

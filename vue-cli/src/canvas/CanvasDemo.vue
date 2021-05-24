@@ -9,7 +9,7 @@
     <div></div>
     <canvas ref="canvas" width="800" style="border: 1px solid #000000"> </canvas>
     <!-- <img ref="img" class="image-style2" src="/static/assets/161753_2021-04-14-15-18_simulation.jpg" loading="lazy" /> -->
-    <img ref="img" src="/static/assets/1111.jpg" loading="lazy" />
+    <img ref="img" src="/static/assets/1111.jpg" />
     <img ref="img1" class="image-style1" src="/static/assets/161753_2021-04-14-15-18_simulation.jpg" loading="lazy" />
   </div>
 </template>
@@ -39,9 +39,15 @@ export default {
     },
     test() {
       // canvas height 修复会引起canvas已有的绘制消失 需要重新绘制
-      this.cHeight += 100
+      // this.cHeight += 100
       // 设置属性 或者通过canvas.height设置效果相同
-      this.$refs.canvas.height = 800
+      // this.$refs.canvas.height = 800
+
+      const img1 = this.$refs.img
+      img1.src = ''
+      setTimeout(() => {
+        img1.src = '/static/assets/1111.jpg'
+      }, 4000)
     },
   },
   mounted() {

@@ -1,6 +1,7 @@
 <template>
   <div id="demo">
     demo
+    <img src='file:///Users/weiyajun/work/myProject/basics-learn/python/image-handle/images/tmp.png'>
     <el-button @click="handleClick">test splice</el-button>
     <el-button @click="handleClick2">test push</el-button>
     <el-button @click="handleClick3">test varObj</el-button>
