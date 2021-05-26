@@ -84,5 +84,9 @@ export default new Router({
       path: '/scroll',
       component: () => import('@/scroll/scroll-demo'),
     },
+    {
+      path: '/sync',
+      component: () => import('@/sync/SyncDemo.vue'),
+    },
   ],
 })

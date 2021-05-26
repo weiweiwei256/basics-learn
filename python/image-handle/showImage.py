@@ -14,6 +14,5 @@ cv2.imshow("东小东标题", imgviewx)
 
 # 窗口等待任意键盘按键输入,0为一直等待,其他数字为毫秒数
 cv2.waitKey(0)
-
 # 销毁窗口，退出程序
 cv2.destroyAllWindows()
