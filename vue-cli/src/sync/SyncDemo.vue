@@ -8,6 +8,7 @@
   </div>
 </template>
 
+
 <script>
 import SyncCmp from './SyncCmp'
 export default {
