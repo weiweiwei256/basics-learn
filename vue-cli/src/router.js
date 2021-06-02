@@ -88,5 +88,9 @@ export default new Router({
       path: '/sync',
       component: () => import('@/sync/SyncDemo.vue'),
     },
+    {
+      path: '/debounce',
+      component: () => import('@/debounce/debounce.vue'),
+    },
   ],
 })
