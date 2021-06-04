@@ -4,10 +4,9 @@
     <p>{{ outValue }}</p>
     <hr />
     <SyncCmp :value.sync="outValue" />
-    <SyncCmp v-model="outValue" />
+    <!-- <SyncCmp v-model="outValue" /> -->
   </div>
 </template>
-
 
 <script>
 import SyncCmp from './SyncCmp'

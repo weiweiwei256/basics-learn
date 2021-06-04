@@ -11,7 +11,7 @@ export default {
   name: 'debounce-throttle',
   data: function () {
     return {
-      data1: 'sdfsdf',
+      data1: 'data1',
     }
   },
   watch: {},
