@@ -16,7 +16,6 @@ annotation = """
 -o,--output 参数： 可缺省。默认当前路径 文件路径。
 """
 
-
 class BasePlugin:
     # 运行模式 默认时run 执行main方法，设置config则返回配置
     __RUN_MODE = "run"
