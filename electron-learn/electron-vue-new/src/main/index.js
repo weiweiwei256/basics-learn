@@ -26,8 +26,8 @@ function createWindow() {
     useContentSize: true,
     width: 1000,
     webPreferences: {
-      nodeIntegration: true,
-      enableRemoteModule: true,
+      nodeIntegration: true,  // 处理 require undefined 问题
+      enableRemoteModule: true,  // 在渲染进程中使用主进程模块。https://www.electronjs.org/docs/api/remote
     },
   });
 

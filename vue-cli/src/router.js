@@ -92,5 +92,9 @@ export default new Router({
       path: '/debounce',
       component: () => import('@/debounce/debounce.vue'),
     },
+    {
+      path: '/hevc',
+      component: () => import('@/hevc/hevc.vue'),
+    },
   ],
 })
