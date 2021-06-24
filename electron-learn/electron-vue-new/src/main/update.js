@@ -18,7 +18,7 @@ function updateHandle(mainWindow) {
   };
   const os = require("os");
 
-  autoUpdater.setFeedURL("http://127.0.0.1:9000/download");
+  autoUpdater.setFeedURL("http://10.159.2.35:9011");
   autoUpdater.on("error", function(error) {
     sendUpdateMessage(message.error);
   });

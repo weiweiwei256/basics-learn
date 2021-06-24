@@ -30,7 +30,7 @@
 		"publish": [
 			{
 				"provider": "generic",
-				"url": "http://127.0.0.1:9000/download"
+				"url": "http://10.159.2.35:9011"
 			}
 		],
 		"directories": {

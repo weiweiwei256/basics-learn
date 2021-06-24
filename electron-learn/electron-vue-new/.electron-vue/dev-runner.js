@@ -125,9 +125,10 @@ function startMain() {
 
 function startElectron() {
   var args = [
-    "--inspect=6858",
-    path.join(__dirname, "../dist/electron/main.js"),
-  ];
+    '--no-sandbox',
+    '--inspect=5858',
+    path.join(__dirname, '../dist/electron/main.js')
+  ]
 
   // detect yarn or npm and process commandline args accordingly
   if (process.env.npm_execpath.endsWith("yarn.js")) {
