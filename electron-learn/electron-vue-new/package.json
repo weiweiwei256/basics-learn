@@ -1,6 +1,6 @@
 {
 	"name": "electron-vue-new",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"author": "RUNNERUP <raj2011@163.com>",
 	"description": "An electron-vue project",
 	"license": null,
@@ -30,7 +30,8 @@
 		"publish": [
 			{
 				"provider": "generic",
-				"url": "http://10.159.2.35:9011"
+				"url": "http://10.159.2.35:9011",
+				"channel": "latest-xyz"
 			}
 		],
 		"directories": {
@@ -66,7 +67,8 @@
 		},
 		"linux": {
 			"icon": "build/icons",
-			"target": "deb"
+			"target": "deb",
+			"category": "Tools"
 		}
 	},
 	"dependencies": {
