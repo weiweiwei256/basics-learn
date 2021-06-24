@@ -1,4 +1,6 @@
 import { app, BrowserWindow } from "electron";
+import { autoUpdater } from "electron-updater";
+import updateHandle from "./update";
 import "../renderer/store";
 
 /**
@@ -26,8 +28,8 @@ function createWindow() {
     useContentSize: true,
     width: 1000,
     webPreferences: {
-      nodeIntegration: true,  // 处理 require undefined 问题
-      enableRemoteModule: true,  // 在渲染进程中使用主进程模块。https://www.electronjs.org/docs/api/remote
+      nodeIntegration: true, // 处理 require undefined 问题
+      enableRemoteModule: true, // 在渲染进程中使用主进程模块。https://www.electronjs.org/docs/api/remote
     },
   });
 
@@ -36,6 +38,7 @@ function createWindow() {
   mainWindow.on("closed", () => {
     mainWindow = null;
   });
+  updateHandle(mainWindow);
 }
 
 app.on("ready", createWindow);
@@ -51,7 +54,6 @@ app.on("activate", () => {
     createWindow();
   }
 });
-
 /**
  * Auto Updater
  *
@@ -60,14 +62,12 @@ app.on("activate", () => {
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-electron-builder.html#auto-updating
  */
 
-/*
-import { autoUpdater } from 'electron-updater'
+autoUpdater.on("update-downloaded", () => {
+  autoUpdater.quitAndInstall();
+});
 
-autoUpdater.on('update-downloaded', () => {
-  autoUpdater.quitAndInstall()
-})
-
-app.on('ready', () => {
-  if (process.env.NODE_ENV === 'production') autoUpdater.checkForUpdates()
-})
- */
+app.on("ready", () => {
+  // if (process.env.NODE_ENV === "production") {
+  autoUpdater.checkForUpdates();
+  // }
+});
