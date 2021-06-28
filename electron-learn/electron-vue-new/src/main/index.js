@@ -2,6 +2,7 @@ import { app, BrowserWindow } from "electron";
 import { autoUpdater } from "electron-updater";
 import updateHandle from "./update";
 import "../renderer/store";
+import "./ipcMain";
 
 /**
  * Set `__static` path to static files in production
