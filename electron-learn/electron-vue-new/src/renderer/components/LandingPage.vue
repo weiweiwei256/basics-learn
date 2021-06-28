@@ -4,7 +4,7 @@
     <main>
       <div class="left-side">
         <span class="title">
-					user update version v0.0.2
+					updated !!!!!!!!
         </span>
         <system-information></system-information>
       </div>

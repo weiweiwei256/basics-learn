@@ -18,7 +18,7 @@ function updateHandle(mainWindow) {
   };
   const os = require("os");
 
-  autoUpdater.setFeedURL("http://10.159.2.35:9011");
+  autoUpdater.setFeedURL("https://ll-office.exz.me:8443/file/freestone_auto_update/");
   autoUpdater.on("error", function(error) {
     sendUpdateMessage(message.error);
   });

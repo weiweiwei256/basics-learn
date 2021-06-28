@@ -1,6 +1,6 @@
 {
 	"name": "electron-vue-new",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"author": "RUNNERUP <raj2011@163.com>",
 	"description": "An electron-vue project",
 	"license": null,
@@ -10,6 +10,7 @@
 		"build": "node .electron-vue/build.js && electron-builder",
 		"build:all": "node .electron-vue/build.js && electron-builder -mwl",
 		"build:linux": "node .electron-vue/build.js && electron-builder -l",
+		"build:win": "node .electron-vue/build.js && electron-builder -w",
 		"build:dir": "node .electron-vue/build.js && electron-builder --dir",
 		"build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
 		"build:web": "cross-env BUILD_TARGET=web node .electron-vue/build.js",
@@ -30,8 +31,7 @@
 		"publish": [
 			{
 				"provider": "generic",
-				"url": "http://10.159.2.35:9011",
-				"channel": "latest-xyz"
+				"url": "https://ll-office.exz.me:8443/file/freestone_auto_update/"
 			}
 		],
 		"directories": {
@@ -58,8 +58,7 @@
 		"mac": {
 			"icon": "build/icons/icon.icns",
 			"target": [
-				"dmg",
-				"zip"
+				"dmg"
 			]
 		},
 		"win": {
@@ -67,8 +66,9 @@
 		},
 		"linux": {
 			"icon": "build/icons",
-			"target": "deb",
-			"category": "Tools"
+			"target": [
+				"AppImage"
+			]
 		}
 	},
 	"dependencies": {
