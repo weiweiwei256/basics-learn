@@ -81,6 +81,10 @@ export default new Router({
       component: CanvasDemo,
     },
     {
+      path: '/canvas-image',
+      component: () => import('@/canvas/CanvasImage'),
+    },
+    {
       path: '/scroll',
       component: () => import('@/scroll/scroll-demo'),
     },
