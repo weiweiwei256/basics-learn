@@ -19,6 +19,7 @@ function updateHandle(mainWindow) {
   const os = require("os");
 
   autoUpdater.setFeedURL("https://ll-office.exz.me:8443/file/freestone_auto_update/");
+	// 初始化autoUpdater的各种时间响应
   autoUpdater.on("error", function(error) {
     sendUpdateMessage(message.error);
   });

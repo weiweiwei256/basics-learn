@@ -2,7 +2,7 @@ import { app, BrowserWindow } from "electron";
 import { autoUpdater } from "electron-updater";
 import updateHandle from "./update";
 import "../renderer/store";
-import "./ipcMain";
+import setMainWindow from "./ipcMain";
 
 /**
  * Set `__static` path to static files in production
@@ -39,6 +39,7 @@ function createWindow() {
   mainWindow.on("closed", () => {
     mainWindow = null;
   });
+  setMainWindow(mainWindow);
   updateHandle(mainWindow);
 }
 
@@ -69,6 +70,7 @@ autoUpdater.on("update-downloaded", () => {
 
 app.on("ready", () => {
   if (process.env.NODE_ENV === "production") {
+    // 自动触发第一次更新检测
     autoUpdater.checkForUpdates();
   }
 });

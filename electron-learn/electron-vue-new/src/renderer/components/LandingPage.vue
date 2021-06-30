@@ -49,23 +49,30 @@ export default {
     open(link) {
       this.$electron.shell.openExternal(link);
     },
+    // 前端主动发起事件
     async test() {
       // console.log(
       //   "sendSync result:",
-      //   ipcRenderer.sendSync("synchronous-message", "ping")
+      ipcRenderer.sendSync("synchronous-message", "ping");
       // ); // prints "pong"
-      ipcRenderer.send("asynchronous-message", "ping");
-      const result = await ipcRenderer.invoke(
-        "my-invokable-ipc",
-        "arg1",
-        "arg2"
-      );
-      console.log("result", result);
+      // ipcRenderer.send("asynchronous-message", "ping");
+      // const result = await ipcRenderer.invoke(
+      //   "my-invokable-ipc",
+      //   "arg1",
+      //   "arg2"
+      // );
+      // console.log("result", result);
       // ...
     },
   },
   mounted() {
+    // 前端增加事件监听
     ipcRenderer.on("asynchronous-reply", (event, arg) => {
+      console.log("arg", arg); // prints "pong"
+    });
+    
+    ipcRenderer.on("receive_main_process_message", (event, arg) => {
+      console.info(`-----------receive main process message------`);
       console.log("arg", arg); // prints "pong"
     });
   },
