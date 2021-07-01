@@ -1,7 +1,7 @@
 <template>
   <div id="canvas-image">
-    <canvas ref="canvas" width="1800" height="800" style="border: 1px solid #000000; background-color: white"> </canvas>
-    <!-- <img ref="img" class="image-style2" src="" loading="lazy" /> -->
+    <canvas ref="canvas" width="800" height="800" style="border: 1px solid #000000; background-color: white"> </canvas>
+    <el-button @click="testScale">test scale</el-button>
   </div>
 </template>
 
@@ -11,71 +11,132 @@ export default {
   data: function () {
     return {
       canvas: undefined,
+      image: undefined,
+      isMouseDown: false,
+      mousePos: {},
+      imagePos: {},
     }
   },
   watch: {},
   methods: {
-    handleDraw() {
-      // 绘制
-      const imgDom = this.$refs.img
-      console.dir('imgDom', imgDom)
-      console.log('imgDom.naturalWidth', imgDom.naturalWidth)
-      console.log('imgDom.naturalHeight', imgDom.naturalHeight)
-
-      console.log('this.canvas.clientWidth', this.canvas.clientWidth)
-      console.log('this.canvas.clientHeight', this.canvas.clientHeight)
-      this.ctx.drawImage(imgDom, 0, 0, imgDom.naturalWidth, imgDom.naturalHeight)
+    testScale() {
+      // this.ctx.translate(0, 0)
+      this.ctx.scale(5, 5)
+      this.drawImage(this.image, { ix: 0, iy: 0, iw: 800, ih: 800 })
+      // this.drawImage(this.image, { ix: 0, iy: 0, iw: 800 * 5, ih: 800 * 5 })
     },
-    test() {
-      // canvas height 修复会引起canvas已有的绘制消失 需要重新绘制
-      // this.cHeight += 100
-      // 设置属性 或者通过canvas.height设置效果相同
-      // this.$refs.canvas.height = 800
-
-      const img1 = this.$refs.img
-      img1.src = ''
-      setTimeout(() => {
-        img1.src = '/static/assets/1111.jpg'
-      }, 4000)
-    },
-    getImageposition(canvas, image) {
+    // 根据canvas,image宽高自动返回iamge水平竖直居中效果 类似 object-fit:contain
+    getImageInitPos(canvas, image) {
       const canvasRadio = canvas.width / canvas.height
       const imageRadio = image.width / image.height
-      console.log('canvasRadio', canvasRadio)
-      console.log('imageRadio', imageRadio)
       const position = {
-        dx: 0,
-        dy: 0,
-        dh: canvas.height,
-        dw: canvas.width,
+        ix: 0,
+        iy: 0,
+        ih: canvas.height,
+        iw: canvas.width,
       }
       // 宽度100% 填充  高度 居中
       if (canvasRadio <= imageRadio) {
-        position.dh = canvas.width / imageRadio
-        position.dy = (canvas.height - position.dh) / 2
+        position.ih = canvas.width / imageRadio
+        position.iy = (canvas.height - position.ih) / 2
       } else {
         // 高度100% 填充  水平 居中
-        position.dw = canvas.height * imageRadio
-        position.dx = (canvas.width - position.dw) / 2
+        position.iw = canvas.height * imageRadio
+        position.ix = (canvas.width - position.iw) / 2
       }
       return position
     },
+    doMouseDown(e) {
+      this.isMouseDown = true
+      this.canvas.style.cursor = 'move'
+      const mousePos = this.transformEventToCanvasPos(this.canvas, e.clientX, e.clientY)
+      this.mousePos = mousePos
+      // console.info(`-----------mouse down-----------`)
+      // console.log('e', e)
+    },
+    // 每11~12ms调用一次
+    doMouseMove(e) {
+      if (!this.isMouseDown) return
+      const mousePos = this.transformEventToCanvasPos(this.canvas, e.clientX, e.clientY)
+      const offset = this.getOffset(this.mousePos, mousePos)
+      this.mousePos = mousePos
+      this.imagePos.ix += offset.offsetX
+      this.imagePos.iy += offset.offsetY
+      this.drawImage(this.image, this.imagePos)
+    },
+    drawImage(image, pos) {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+      const { ix, iy, iw, ih } = pos
+      //developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/drawImage
+      this.ctx.drawImage(image, ix, iy, iw, ih)
+    },
+    getOffset(oldPos, newPos) {
+      return {
+        offsetX: newPos.mx - oldPos.mx,
+        offsetY: newPos.my - oldPos.my,
+      }
+    },
+    doMouseUp(e) {
+      this.isMouseDown = false
+      this.canvas.style.cursor = 'default'
+      // console.info(`-----------mouse up-----------`)
+      // console.log('e', e)
+    },
+    doMouseScroll(e) {
+      console.log('e.wheelDelta', e.wheelDelta)
+      const delta = e.wheelDelta / 120
+      console.log('delta', delta)
+      const mousePos = this.transformEventToCanvasPos(this.canvas, e.clientX, e.clientY)
+      console.log('mousePos', mousePos)
+      // Todo:边界判断
+      const newImagePos = this.getZoomPos(this.imagePos, mousePos, delta)
+      this.imagePos = newImagePos
+      this.drawImage(this.image, newImagePos)
+    },
+    getZoomPos(imagePos, mousePos, delta) {
+      const rate = 1 + 0.1 * delta
+      console.log('rate', rate)
+      const { mx, my } = mousePos
+      const { ix, iy, iw, ih } = imagePos
+      const newImagePos = {}
+      newImagePos.iw = iw * rate
+      newImagePos.ih = ih * rate
+      newImagePos.iy = my - (my - iy) * rate
+      newImagePos.ix = mx - (mx - ix) * rate
+      return newImagePos
+    },
+    canvasEventInit() {
+      this.time = Date.now()
+      this.canvas.addEventListener('mousedown', this.doMouseDown, false)
+
+      this.canvas.addEventListener('mousemove', this.doMouseMove, false)
+
+      this.canvas.addEventListener('mouseup', this.doMouseUp, false)
+      this.canvas.addEventListener('mousewheel', this.doMouseScroll, false)
+    },
+    transformEventToCanvasPos(canvas, x, y) {
+      var { left, top } = this.canvas.getBoundingClientRect() //getBoundingClientRect获取元素相对于视窗的位置集合
+      return {
+        mx: x - left,
+        my: y - top,
+      }
+    },
   },
+  beforeDestroy() {},
   mounted() {
-    const image = new Image()
+    this.image = new Image()
     this.canvas = this.$refs.canvas
     this.ctx = this.canvas.getContext('2d')
-    image.src = '/static/assets/plant.jpg'
-    image.onload = () => {
-      console.log('image.width', image.width)
-      console.log('image.height', image.height)
+    this.canvasEventInit()
+    this.image.src = '/static/assets/plant.jpg'
+    this.image.onload = () => {
+      console.log('image.width', this.image.width)
+      console.log('image.height', this.image.height)
       console.log('this.canvas.width', this.canvas.width)
       console.log('this.canvas.height', this.canvas.height)
-      const position = this.getImageposition(this.canvas, image)
-      console.log('position', position)
-      const { dx, dy, dw, dh } = position
-      //developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/drawImage
-      this.ctx.drawImage(image, dx, dy, dw, dh)
+      const position = this.getImageInitPos(this.canvas, this.image)
+      this.imagePos = position
+      this.drawImage(this.image, this.imagePos)
     }
   },
 }
@@ -83,9 +144,8 @@ export default {
 
 <style>
 #canvas-image {
-  margin-top: 50px;
+  padding-top: 50px;
   width: 100%;
-  height: 100%;
 }
 .canvas-style {
   display: block;
